@@ -1,0 +1,754 @@
+---
+title: |
+  Hurricane rapid intensification #3: 
+  <center>Bagging and boosting</center>
+output: 
+  html_document: 
+    toc: true
+    toc_depth: 3
+    toc_float: false
+    number_sections: true
+---
+
+```{r setup, include=FALSE} 
+# Set global options
+knitr::opts_chunk$set(echo=TRUE)
+```
+
+The classification problem set out in [Kernel #1](https://www.kaggle.com/junella/hurricane-strength-1-naive-bayes-classifier) is to identify when a tropical cyclone in the Atlantic between 1980 and 2014 underwent "rapid intensification", based on just previous location and intensity data. 
+In [Kernel #2](https://www.kaggle.com/junella/hurricane-strength-2-decision-tree/), I built decision trees of varying depths and they all seem to work better than the naive Bayes classifier, and I'm about to see if random forest will do better - they generally do, but this particular classification problem may not be all that typical... 
+
+# ~~Data~~ [See [Kernel #1](https://www.kaggle.com/junella/hurricane-strength-1-naive-bayes-classifier)] {.tabset}
+
+## ~~Predictors~~
+
+The predictors are taken from literature. Will explore feature selection in another kernel. 
+```{r echo=FALSE, results = 'hide', message=FALSE, warning=FALSE} 
+packages <- c("lubridate"
+              , "stringr"
+              , "plyr"
+              , "dplyr"              
+              , "geosphere"
+              , "ggplot2"
+#              , "rworldmap"
+              , "caTools"
+#              , "e1071"
+              , "rpart"
+#              , "ElemStatLearn"
+              , "caret"
+              , "scales"
+              , "rpart.plot"
+              , "rattle"
+              )
+install_packages <- function(x){ 
+  eval(parse(text=paste0("if(!require(",x, ")){install.packages(\"",x, "\")}")))
+}
+for (i in packages){ 
+  install_packages(i)
+#  eval(parse(text=paste0("library(",i,")")))
+}
+```
+```{r echo=FALSE, results = 'hide', message=FALSE, warning=FALSE} 
+### Read and clean data
+input_dir="../input/"
+data=read.csv(paste0(input_dir,"/","atlantic.csv"), header=T, stringsAsFactors=F, na.strings=-999)
+library(lubridate)
+library(stringr)
+data=data.frame(data,date_time=rep(NA,nrow(data)))
+data$date_time=ymd_hms(paste0(data$Date,str_pad(data$Time,4,pad="0"),"00"), tz="UTC")
+data=data[hour(data$date_time) %% 6 == 0, ] #6-hourly data
+data=data[str_trim(data$Event) != "L",] #rid of irregular landfall data
+
+data$Latitude=ifelse(str_sub(data$Latitude,-1,-1)=="N",str_sub(data$Latitude,1,-2),paste0("-",str_sub(data$Latitude,1,-2)))
+data$Longitude=sapply(data$Longitude,function (x) ifelse(str_sub(x,-1,-1)=="W", paste0("-",str_sub(x,1,-2)), str_sub(x,1,-2)))
+for (i in c("Latitude", "Longitude")) data[,colnames(data) == i]=as.numeric(data[,colnames(data) == i])
+data$Longitude[data$Longitude < -180]=180-(abs(data$Longitude[data$Longitude < -180])-180)
+
+### Trim data
+data=data[, colnames(data) %in% c("ID", "Name", "Status", "Latitude", "Longitude", "Maximum.Wind", "date_time")] #, "Minimum.Pressure"
+data=data[year(data$date_time) >= 1980 & year(data$date_time) <= 2014,]
+
+############################################################
+### Predictand and predictors
+### Identify rapid intensification
+library(plyr) # If you need functions from both plyr and dplyr, please load plyr first
+library(dplyr) 
+data=data %>%
+  group_by(ID) %>%
+  arrange(date_time, .by_group = TRUE) %>%
+  mutate(diff = Maximum.Wind - lag(Maximum.Wind, n=24/6, default = NA)) %>%
+  as.data.frame
+data=data.frame(data, rapid_int=ifelse(data$diff>=30,1,0))
+nrow(data)
+
+### Determine the length of each track
+#library(plyr)
+data=ddply(data[order(data$date_time, decreasing=F),], .(ID), mutate, i=seq_along(ID))
+data=ddply(data, .(ID), mutate, n=length(ID))
+
+### Persistence: change in wind strength over the previous 12 hours - between T-18 and T-6 assuming that the strength at T+0 is not known
+data=data %>%
+  group_by(ID) %>%
+  arrange(date_time, .by_group = TRUE) %>%
+  mutate(persistence = lag(Maximum.Wind, n=1, default=NA) - lag(Maximum.Wind, n=12/6+1, default = NA)) %>%
+  as.data.frame
+
+### The initial maximum wind strength: the strongest wind strength of the tropical cyclone up till that point
+data$temp = ave(data$Maximum.Wind, data$ID, FUN=cummax) #including T+0
+data=data %>%
+  group_by(ID) %>%
+  arrange(date_time, .by_group = TRUE) %>%
+  mutate(Initial.Max = lag(temp, n=1, default=NA)) %>% #excluding T+0
+  as.data.frame 
+
+### Product: persistence * initial maximum strength
+data$temp = data$persistence * data$Initial.Max
+colnames(data)[colnames(data) == "temp"]="product"
+
+### Calculate the speed (over a 12-hour period), excluding T+0? T-6, T-12, T-18 (top)
+period=12
+data=data[order(data$ID, data$date_time, decreasing=F),]
+library(geosphere) #fields)
+#dist=rdist.earth(as.matrix(data[(24/6+1):nrow(data), colnames(data) %in% c("Longitude", "Latitude")]),as.matrix(data[1:(nrow(data)-24/6), colnames(data) %in% c("Longitude", "Latitude")]),miles=FALSE, R=6371)
+dist=distCosine(as.matrix(data[(period/6+1):(nrow(data)-1), c("Longitude", "Latitude")])
+                , as.matrix(data[1:(nrow(data)-period/6-1), c("Longitude", "Latitude")])
+                , r=6371) #km; 6378137m
+data=data.frame(data, speed=c(rep(NA,period/6+1), dist/period)) #km/h
+#data$speed[is.na(data$Initial.Max)]=NA
+
+### The zonal component
+#library(geosphere)
+temp=data[1:(nrow(data)-period/6-1), c("Longitude", "Latitude")] #old: different from above
+temp$Longitude=temp$Longitude-1 #westward
+dist_z=alongTrackDistance(as.matrix(data[1:(nrow(data)-period/6-1), c("Longitude", "Latitude")]) #old
+                , as.matrix(data[1:(nrow(data)-period/6-1), c("Longitude", "Latitude")]) #new
+                , as.matrix(temp) #along the latitude of the old point
+                , r=6371)
+data=data.frame(data, speed_z=c(rep(NA,period/6+1), dist_z/period)) #km/h
+#data$speed_z[is.na(data$Initial.Max)]=NA
+
+### The meridional component
+#library(geosphere)
+temp=data[1:(nrow(data)-period/6-1), c("Longitude", "Latitude")] #old: different from above
+temp$Latitude=temp$Latitude+1 #northward
+dist_m=alongTrackDistance(as.matrix(data[1:(nrow(data)-period/6-1), c("Longitude", "Latitude")]) #old
+                , as.matrix(data[1:(nrow(data)-period/6-1), c("Longitude", "Latitude")]) #new
+                , as.matrix(temp) #along the longitude of the old point
+                , r=6371)
+data=data.frame(data, speed_m=c(rep(NA,period/6+1), dist_m/period)) #km/h
+#data$speed_m[is.na(data$Initial.Max)]=NA
+
+data[is.na(data$Initial.Max), colnames(data) %in% c("speed", "speed_z", "speed_m")]=NA
+
+# Climatology: days from the average peak (Julian) day of the season, which is 253
+temp=as.POSIXlt(date(data$date_time))
+data=data.frame(data, Jday=abs(temp$yday-253))
+
+# "Maximum.Wind", "Latitude", "Longitude" from T-6
+data=data %>%
+  group_by(ID) %>%
+  arrange(date_time, .by_group = TRUE) %>%
+  mutate(Maximum.Wind_p = lag(Maximum.Wind, n=1, default=NA)
+         , Latitude_p = lag(Latitude, n=1, default=NA)
+         , Longitude_p = lag(Longitude, n=1, default=NA)
+        ) %>%
+  as.data.frame
+
+### Building the dataset
+### Limit the dataset to tropical cyclones
+data=data[! str_trim(data$Status) %in% c("EX" 
+                                         , "DB" #non-tropical Disturbance, without a closed circulation
+                                         , "WV" #tropical wave
+                                         , "SD" #Subtropical depression (winds <34 kt)
+                                         , "SS" #Subtropical storm (winds >34 kt)
+                                         , "LO" #low - see http://www.aoml.noaa.gov/hrd/data_sub/newHURDAT.html
+                                         ), ]
+
+### Start of the episode? 
+data=data.frame(data, temp=data$rapid_int)
+data$temp[is.na(data$temp)]=0 
+data=data %>%
+  group_by(ID) %>%
+  arrange(date_time, .by_group = TRUE) %>%
+  mutate(rapid_int_i = cumsum(temp)) %>%
+  as.data.frame 
+data=data[,! colnames(data) == "temp"]
+data=ddply(data, .(ID), mutate, rapid_int_n=max(rapid_int_i))
+
+### History
+rapid_int=na.omit(data[data$rapid_int==1, ])
+data=data.frame(data, hist=ifelse(data$ID %in% unique(rapid_int$ID), 1, 0))
+#signif(length(unique(rapid_int$ID))/length(hurricanes)*100,3) 
+
+### **** handle NA
+data=data[(is.na(data$persistence) | data$persistence >= 0),] # rid of weakening 
+data_raw=data
+#write.csv(data_raw, "data_raw.csv")
+
+data=na.omit(data)
+head(data)
+hurricanes=unique(data$ID)
+signif(nrow(data[data$rapid_int==1,])/nrow(data)*100,3) 
+
+############################################################
+### Examine data
+library(ggplot2)
+plot=ggplot() + 
+  geom_polygon(data=map_data("world"), aes(x=long,y=lat,group=group)) + 
+  labs(x=NULL, y=NULL, title=NULL) +
+  theme(legend.position="none")+
+  coord_fixed(xlim=c(-110,5), ylim=c(0,70), ratio=1.3)
+plot=plot+scale_colour_gradientn(colours=rev(rainbow(3)))
+for (i in seq(length(hurricanes))) {
+  data_plot=data[data$ID == hurricanes[i],]
+  data_plot=data_plot[order(data_plot$date_time),]
+  plot=plot+
+    geom_path(data=data_plot
+              , aes(x=Longitude,y=Latitude,group=ID,colour=Maximum.Wind)
+              , size=(data_plot$hist+1)*0.5
+#              , alpha=1/2
+               )
+}
+plot=plot+geom_point(data=rapid_int
+           , aes(x=Longitude,y=Latitude) #,colour="black")
+           , size=3, shape=1)
+```
+
+## ~~Pre-processing~~
+
+I'll have to come back to this later to apply feature scaling, but for now, the pre-processing stays the same as before. 
+
+```{r echo=FALSE, results = 'hide', message=FALSE, warning=FALSE}
+############################################################
+### Data preparation
+for (i in c("rapid_int", "hist")) data[, colnames(data) == i]=factor(data[, colnames(data) == i], levels=c(0,1))
+```
+```{r include=FALSE}
+#for (i in c("Maximum.Wind", "Latitude", "Longitude" #at T+0
+#            , "Maximum.Wind_p", "Latitude_p", "Longitude_p" #at T-6
+#            , "persistence", "product", "Initial.Max"
+#            , "speed", "speed_z", "speed_m"
+#            , "Jday"
+#           )) data[, colnames(data) == i]=scale(data[, colnames(data) == i])
+```
+```{r echo=FALSE, results = 'hide', message=FALSE, warning=FALSE}
+library(caTools)
+set.seed(123)
+split=sample.split(hurricanes, SplitRatio=0.75)
+data_training = data[data$ID %in% hurricanes[split],]
+data_test = data[data$ID %in% hurricanes[! split],]
+
+signif(nrow(data_training[data_training$rapid_int == 1,])/nrow(data_training)*100, 3)
+
+colnames(data) #check order
+```
+
+# Random forest
+
+A random forest consists of a bunch of decision trees, that are built with an element of randomness in the data and also the predictors. The idea is to end up with trees, each built according to a particular aspect of the problem, so together as an *ensemble*, they represent the problem quite fully and accurately. 
+
+## Bagging
+
+Bagging is short for bootstrap aggregation, and it is the approach of randomly picking samples from the training dataset and combining the resulting models for one single output. 
+
+### Bootstrap
+
+Like $k$-fold in the last kernel, bootstrap is also a resampling method. Instead of dividing up the data into distinct partitions (so the model gets tested on unseen data to make it more robust or get a more realistic error estimate), this samples from the same training dataset over and over again (ie with replacement) to populate independent *surrogate* datasets of the same size as the training dataset. This allows a greater chance for the different attributes of the data to be represented, so you can approximate the underlying distribution a bit better. 
+
+This works especially well for decision trees, as they have the tendency to adapt too closely to the data they get given (ie overfit) - whenever a split occurs, the data gets [broken](https://www.quora.com/Why-does-random-forest-use-sampling-with-replacement-instead-of-without-replacement) into smaller subsets so the signal can be dampened and get lost in the noise. So with bootstrapping, we hope to strengthen the signal in the data and that the majority of the trees will be able to capture it. 
+
+```{r message=FALSE, warning=FALSE}
+#Code adapted from: http://enhancedatascience.com/2017/06/28/machine-learning-explained-bagging/
+#See also: http://amunategui.github.io/bagging-in-R/
+#repeated cv instead of bootstrap?: https://machinelearningmastery.com/machine-learning-ensembles-with-r/
+library(rpart)
+n_models=3
+bagged_models=list()
+set.seed(321)
+for (i in 1:n_models) {
+  data_bootstrapped=sample_n(data_training,size=nrow(data_training),replace=T) 
+  print(paste0("Sample ", i, ") # rows: ", nrow(data_bootstrapped), ", duplicates: ", sum(1*duplicated(data_bootstrapped)) ))
+  classifier=rpart(formula = rapid_int ~ persistence + product + Initial.Max + speed_z + speed_m + Jday + Maximum.Wind_p + Latitude_p + Longitude_p
+                  , data = data_bootstrapped
+                  , control=rpart.control(cp=0))
+  cp=classifier$cptable[which.min(classifier$cptable[,"xerror"]),"CP"]
+  classifier_pruned=prune(classifier, cp=cp)
+  bagged_models=c(bagged_models
+                  , list(classifier_pruned))
+} 
+```
+In general, there's around 2/3 of an [overlap](https://www.is.uni-freiburg.de/ressourcen/business-analytics/11_Resampling.pdf) between the bootstrapped samples and the original training dataset, but we can see from the plot (more clearly under the Output tab) that the variance introduced is enough to generate at least 3 different trees - they differ in terms of the number of nodes and also some of the thresholds. 
+
+```{r results="hide", echo=FALSE, message=FALSE, warning=FALSE}
+library(rpart.plot)
+png("Bagged_trees.png", width = 6, height = 4, units = "in", res = 1200)
+  par(mfrow=c(1,n_models))
+  for (i in 1:n_models) prp(bagged_models[[i]], extra=0, varlen=11, cex=0.5, main=paste("Bootstrapped", i))
+dev.off()
+```
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+par(mfrow=c(1,n_models))
+for (i in 1:n_models) {
+  plot(bagged_models[[i]], uniform=TRUE, margin=0.1, main=paste("Bootstrapped", i))
+  text(bagged_models[[i]], use.n=TRUE, all=TRUE, cex=0.5)
+} 
+par(mfrow=c(1,1))
+```
+
+### Aggregation 
+
+So bootstrapping deals with the input, and aggregation is to do with the output. Having trained a bunch of trees on slightly different datasets, we then combine their classification results by... a majority vote! 
+```{r message=FALSE, warning=FALSE}
+bagged_results=NULL
+for (i in 1:n_models) {
+  classifier=bagged_models[[i]]
+  prediction=predict(classifier, newdata=data_test[, colnames(data_test) %in% c("persistence", "product" , "Initial.Max", "speed_z", "speed_m", "Jday"
+                                                                         , "Maximum.Wind_p", "Latitude_p", "Longitude_p")]
+                 , type = 'class') #otherwise probabilities are given
+  bagged_results=cbind(bagged_results, as.numeric(as.character(prediction))) #depends on the ordering of the levels
+} 
+mode <- function(v) {
+  uniqv <- unique(v)
+  uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+bagged_prediction=as.data.frame(apply(bagged_results, 1, mode))
+bagged_results=cbind(bagged_results, bagged_prediction, as.numeric(as.character(data_test$rapid_int)))
+labels=seq(n_models)
+labels=paste0("Tree_", labels)
+colnames(bagged_results)=c(labels, "Bagged_tree", "Ground_truth")
+head(bagged_results)
+```
+
+Row 4 shows how this works when the trees disagree, and the majority vote turns out to be right in this case. 
+
+```{r message=FALSE, warning=FALSE}
+library(caret)
+Kappas=NULL
+for (i in seq(n_models+1)) {
+  temp=factor(bagged_results[,i], levels=sort(unique(bagged_results[,i])))
+  Confusion_matrix_stats <- confusionMatrix(temp, data_test$rapid_int, positive="1") #the other way round
+  Kappas[i] = signif( Confusion_matrix_stats$overall[2]*100, 3)
+}
+Kappas
+```
+
+In terms of verification, we see that the bagged tree has a kappa that is higher than most of the individual trees. 
+
+## Feature bagging
+
+A problem with decision trees is that they are based on a greedy algorithm that looks through all possibilities and chooses the predictor that gives the lowest error to split on. Even with bagging, the resulting trees may have a lot of [structural similarities](https://machinelearningmastery.com/bagging-and-random-forest-ensemble-algorithms-for-machine-learning/) and their predictions can be highly correlated.
+In this case, the trees actually give the same classifications to the test data almost 95% of the time, and this is because of a few fairly strong predictors eg the persistence that is in the [root](https://uc-r.github.io/random_forests) node in all of the trees. 
+
+```{r message=FALSE, warning=FALSE}
+signif( sum(apply(bagged_results[, 1:3], 1, sum) %in% c(0, 3))/nrow(bagged_results)*100, 3)
+```
+
+Random forests therefore introduce another source of randomness by randomly restricting the predictors that the trees can choose from. 
+Typically, the number is limited to the square root of the number in the original set for classification problems (or a third of that number for regression). 
+
+```{r message=FALSE, warning=FALSE}
+library(randomForest)
+set.seed(321)
+classifier = randomForest(formula = rapid_int ~ persistence + product + Initial.Max + speed_z + speed_m + Jday + Maximum.Wind_p + Latitude_p + Longitude_p
+                        , data = data_training 
+                        #x and y fail to generate plots
+                        , do.trace=100 #for plots
+                        #, mtry=9/3
+                        #, ntree=500
+                        #, importance=F
+                        )
+classifier
+```
+
+In a random forest, the trees are grown to their [full depth](https://stats.stackexchange.com/questions/36298/why-is-pruning-not-needed-for-random-forest-trees) without any pruning as it is considered unnecessary. `reprtree` doesn't seem to work in the kernel, but these trees are deep and they don't all have persistence at the root. 
+
+```{r include=FALSE}
+#https://stats.stackexchange.com/questions/41443/how-to-actually-plot-a-sample-tree-from-randomforestgettree
+# options(repos='http://cran.rstudio.org')
+# have.packages <- installed.packages()
+# cran.packages <- c('devtools','plotrix','randomForest','tree')
+# to.install <- setdiff(cran.packages, have.packages[,1])
+# if(length(to.install)>0) install.packages(to.install)
+# 
+# library(devtools)
+# if(!('reprtree' %in% installed.packages())){
+#   install_github('araastat/reprtree')
+# }
+# for(p in c(cran.packages, 'reprtree')) eval(substitute(library(pkg), list(pkg=p)))
+```
+```{r eval=FALSE, message=FALSE, warning=FALSE}
+##https://stats.stackexchange.com/questions/41443/how-to-actually-plot-a-sample-tree-from-randomforestgettree
+#library(reprtree)
+#par(mfrow=c(1,2))
+#k=1
+#tree=getTree(classifier, k=k, labelVar=TRUE)
+#reprtree:::plot.getTree(rforest=classifier, tr=tree, k=k, main="Random Forest")
+#reprtree:::plot.getTree(rforest=classifier, tr=tree, k=k, depth=5, main="Zoom-in")
+#par(mfrow=c(1,1))
+```
+```{r include=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+#png("randomForest.png")
+#par(mfrow=c(1,2))
+#k=1
+#tree=getTree(classifier, k=k, labelVar=TRUE)
+#reprtree:::plot.getTree(rforest=classifier, tr=tree, k=k, main="Random Forest")
+#reprtree:::plot.getTree(rforest=classifier, tr=tree, k=k, depth=3, main="Zoom-in")
+#dev.off()
+```
+```{r include=FALSE}
+#realtree <- reprtree:::as.tree(tree, classifier)
+#library(tree)
+#plot(realtree, uniform=TRUE, margin=0.1)
+#text(realtree, use.n=TRUE, all=TRUE, cex=0.5)
+```
+
+Like `rpart`, however, `randomForest` does something extra behind the scene. While about 2/3 of the training data is used as bootstrapped samples to train the trees, the remaining 1/3 is used to assess the trees. Here, the out-of-bag error rate is averaged over the 500 trees to give 5.16%. Already, this classifier doesn't seem to be doing particularly well, given that the No Information Rate has been calculated in [Kernel #1](https://www.kaggle.com/junella/hurricane-strength-1-naive-bayes-classifier) to be 94%. 
+It isn't a case of not having enough trees in the ensemble, as the errors seem to have saturated: 
+
+```{r message=FALSE, warning=FALSE}
+plot(c(0,500), c(0,0.6), col="white", xlab="Number of trees", ylab="Error")
+data_plot=classifier[[4]]
+col_plot=c("black", "green", "red")
+for (i in seq(3)) lines(data_plot[,i], col=col_plot[i])
+legend(x="topright", legend=c("overall","rapid intensification events", "non-events"), col=col_plot, lty=1)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+prediction=predict(classifier, newdata=data_test[, colnames(data_test) %in% c("persistence", "product" , "Initial.Max", "speed_z", "speed_m", "Jday"
+                                                                              , "Maximum.Wind_p", "Latitude_p", "Longitude_p")]
+                   ) #, type = 'class') 
+
+library(caret)
+Confusion_matrix_stats <- confusionMatrix(prediction, data_test$rapid_int, positive="1") #the other way round
+Confusion_matrix_stats$overall[2]
+```
+
+Indeed, the kappa obtained from the test data is 55.0%, which is lower than that of the simple decision tree in [Kernel #2](https://www.kaggle.com/junella/hurricane-strength-2-decision-tree/notebook) without any tuning. 
+This is rather surprising because ensembles tend to perform better than individual predictions, but we can perhaps try to tune the hyperparameters. 
+
+## Discussions
+
+As `randomForest` does [not scale well](https://uc-r.github.io/random_forests), parameter tuning will have to be done using another package, `ranger`. 
+```{r message=FALSE, warning=FALSE}
+library(caret)
+set.seed(825)
+classifier2 = train(form = rapid_int ~ persistence + product + Initial.Max + speed_z + speed_m + Jday + Maximum.Wind_p + Latitude_p + Longitude_p
+                    , data = data_training
+                    , method = "ranger" #https://topepo.github.io/caret/available-models.html
+                    , metric = "Kappa" 
+                    #, tuneGrid = Grid
+                    #, trControl = Control
+                    #, tuneLength = 10
+) 
+classifier2
+```
+Unfortunately, changing the number of features to be selected from at each node (mtry) from 3 to 5 does not provide much of an improvement, with kappa just reaching 56.8%. 
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+parameters=colnames(classifier2$bestTune)
+tuned=as.vector(classifier2$bestTune)
+for (i in seq(length(parameters))) eval(parse(text= paste0(parameters[i], "=", tuned[i]) )) #as.character
+
+library(ranger)
+#set.seed(321)
+classifier_tuned=ranger(formula = rapid_int ~ persistence + product + Initial.Max + speed_z + speed_m + Jday + Maximum.Wind_p + Latitude_p + Longitude_p
+                        , data = data_training
+                        , num.trees=500
+                        , mtry=mtry
+                        , min.node.size=min.node.size
+                        #, sample.fraction=sample.fraction
+                        #, splitrule=splitrule
+                        , seed=321
+)
+classifier_tuned
+prediction=predict(classifier_tuned, data=data_test[, colnames(data_test) %in% c("persistence", "product" , "Initial.Max", "speed_z", "speed_m", "Jday"
+                                                                              , "Maximum.Wind_p", "Latitude_p", "Longitude_p")]
+                   #, OOB=T, type="response"
+                   ) #, type = 'class') 
+                   # data rather than newdata
+prediction=prediction$predictions
+library(caret)
+Confusion_matrix_stats <- confusionMatrix(prediction, data_test$rapid_int, positive="1") #the other way round
+Confusion_matrix_stats$overall[2]
+```
+
+```{r include=FALSE}
+#Conditional random forest
+library(party)
+set.seed(123)
+classifier_c <- cforest(formula = rapid_int ~ persistence + product + Initial.Max + speed_z + speed_m + Jday + Maximum.Wind_p + Latitude_p + Longitude_p
+                      , data=data_training
+                      , controls=cforest_unbiased(ntree=10, mtry=3))
+prediction=predict(classifier_c, newdata=data_test[, colnames(data_test) %in% c("persistence", "product" , "Initial.Max", "speed_z", "speed_m", "Jday"
+                                                                              , "Maximum.Wind_p", "Latitude_p", "Longitude_p")]
+                   , OOB=T, type="response") #, type = 'class') 
+library(caret)
+Confusion_matrix_stats <- confusionMatrix(prediction, data_test$rapid_int, positive="1") #the other way round
+Confusion_matrix_stats
+```
+A number of reasons can be attributed to this rather disappointing performance (eg [small](https://trevorstephens.com/kaggle-titanic-tutorial/r-part-5-random-forests/) datasets, [stable](https://stats.stackexchange.com/questions/241062/why-decision-tree-is-outperforming-random-forest-in-this-simple-case) tree to start with), 
+but it's probably because the predictor persistence is [too dominant](https://www.quora.com/What-are-some-situations-which-would-cause-a-random-forest-to-perform-more-poorly-than-a-decision-tree) in this case. 
+
+```{r message=FALSE, warning=FALSE}
+#from the randomForest package #https://www.r-bloggers.com/random-forest-classification-of-mushrooms/
+varImpPlot(classifier, sort=T, n.var=9, main="Variable Importance")
+```
+
+Recall from [Kernel 2](https://www.kaggle.com/junella/hurricane-strength-2-decision-tree/) that the best-performing decision tree is the one that has essentially just one node that divides the dataset into whether persistence exceeds 22.5 knots or not. We see that randomly excluding it as a predictor when building the forest seems to do more harm than good. It seems a bit demoralising, but there are still things we can try. 
+
+# Boosting
+
+Boosting is another ensemble method, but instead of growing trees in parallel, they are grown [sequentially](https://www.datacamp.com/community/tutorials/decision-trees-R) so progress can be built on each other. The idea is to combine weak learners into a strong one through a weighted average. 
+
+## Adaptive boosting (AdaBoost)
+
+[AdaBoost](https://towardsdatascience.com/boosting-algorithm-adaboost-b6737a9ee60c) incorporates the errors of previous trees in the data that subsequent trees are trained on, so they get to adapt to those cases. The algorithm works like so: 
+
+* Assign equal weights to the data points. 
+* Find a classifier that gives +1 to events and -1 to non-events. This is usually a decision stump or tree with limited levels. 
+* Fit one of these weak classifiers $f(x)$ to the weighted dataset. Some classifiers take weights into account (eg naive Bayes classifier and k-nearest neighbours), but otherwise the dataset will have to be [resampled](https://stackoverflow.com/questions/18054125/how-to-use-weight-when-training-a-weak-learner-for-adaboost) using the weights such that the data points with more weights could be sampled multiple times. 
+* Calculate the weighted classification error rate $0 \le \epsilon \le 1$. 
+* Adjust the weight for the classifier [$\theta$](http://cmp.felk.cvut.cz/~sochmj1/adaboost_talk.pdf) to $\frac{1}{2} \ln (\frac{1- \epsilon}{\epsilon})$, which means that classifers with less than 50% accuracy will carry a negative weight in the sum such that it can still contribute to the final prediction. 
+* Update the weight for each data point by multiplying it by $exp(-\theta \times y \times f(x))$ and a normalisation factor to make sure that the total sums up to 1. Here, for a data point misclassified ($y \times f(x)$ = -1) by a positively-weighted classifier (postive $\theta$), the exponential will be greater than 1 such that its weight will grow. Similarly, for a data point correctly classified ($y \times f(x)$ = +1) by a negatively-weighted classifier (negative $\theta$), the exponential will also be greater than 1. This gives the subsequent classifiers more of a chance to learn about these misclassifications by relatively good classifiers so to improve on those cases, as well as the correct predictions by the relatively poor classifiers so they can be replicated. 
+* Fit another classifier to the data points with the updated weights and repeat the process. 
+* Sum up the weighted average $\sum \theta f(x)$ in the end to produce the model. 
+
+![](https://sebastianraschka.com/images/faq/bagging-boosting-rf/boosting.png)
+
+There's a choice of packages in R for doing this: 
+
+* `ada`: based on `rpart`, but can only handle [two classes](http://ufal.mff.cuni.cz/~hladka/lab/lab.2011-01-05.pdf). 
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+#Stochastic Boosting Models
+#https://stackoverflow.com/questions/19323587/using-adaboost-wihin-rs-caret-package
+set.seed(321)
+Control <- trainControl(method = "cv" 
+                       #, number = 10
+                       ) 
+classifier2=train(x=data_training[, colnames(data_training) %in% c("persistence", "product" , "Initial.Max", "speed_z", "speed_m", "Jday"
+                                                                             , "Maximum.Wind_p", "Latitude_p", "Longitude_p")]
+                        , y=data_training$rapid_int #classification is assumed if it's a factor 
+                        , method="ada" #https://topepo.github.io/caret/available-models.html
+                        , metric="Kappa"
+                        #, tuneGrid = Grid
+                        , trControl = Control
+                        #, tuneLength = 10
+                        )
+classifier2
+parameters=colnames(classifier2$bestTune)
+tuned=classifier2$bestTune
+tuned=data.frame(lapply(tuned, as.character), stringsAsFactors=FALSE)
+for (i in seq(length(parameters))) eval(parse(text= paste0(parameters[i], "='", tuned[i], "'") )) 
+```
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+#Stochastic Boosting Models
+#http://www.technaaz.com/2017/02/adaboost-made-it-simple-with-r-example.html
+library(ada)
+set.seed(321)
+classifier = ada(x = data_training[, colnames(data_training) %in% c("persistence", "product" , "Initial.Max", "speed_z", "speed_m", "Jday"
+                                                                                                                                      , "Maximum.Wind_p", "Latitude_p", "Longitude_p")]
+            , y=data_training$rapid_int #classification is assumed if it's a factor 
+            , iter=as.numeric(iter) #50
+            , nu=as.numeric(nu) #0.1 #shrinkage
+            , loss="logistic" #"exponential"
+            , control=rpart.control(maxdepth=as.numeric(maxdepth))
+            )
+prediction=predict(classifier, newdata=data_test[, colnames(data_test) %in% c("persistence", "product" , "Initial.Max", "speed_z", "speed_m", "Jday"
+                                                                              , "Maximum.Wind_p", "Latitude_p", "Longitude_p")]
+                   ) #, type = 'class') 
+#prediction=factor(prediction$class, levels=sort(unique(prediction$class)))
+library(caret)
+Confusion_matrix_stats <- confusionMatrix(prediction, data_test$rapid_int, positive="1") #the other way round
+Confusion_matrix_stats$overall[2] 
+```
+
+* `adabag`: uses `AdaBoost.M1` and bagging. It can handle multiple classes, and the parameters can be tuned using `caret::train`. However, the tuning does take a while to run, so long that it'd actually time out, so I'll skip it in this kernel and go straight to the function `boosting`. 
+```{r, eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+library(caret)
+library(adabag)
+set.seed(321)
+Grid <-  expand.grid(coeflearn="Breiman"
+                    , maxdepth=c(1,4,8) #c(1,2,3)
+                    , mfinal=100 #c(50,100,150)
+                    ) 
+Control <- trainControl(method = "cv" 
+                       #, number = 10
+                       ) 
+classifier2=train(x=data_training[, colnames(data_training) %in% c("persistence", "product" , "Initial.Max", "speed_z", "speed_m", "Jday"
+                                                                             , "Maximum.Wind_p", "Latitude_p", "Longitude_p")]
+                        , y=data_training$rapid_int #classification is assumed if it's a factor 
+                        , method="AdaBoost.M1" #https://topepo.github.io/caret/available-models.html
+                        , metric="Kappa"
+                        , tuneGrid = Grid
+                        , trControl = Control
+                        #, tuneLength = 10
+                        )
+classifier2
+parameters=colnames(classifier2$bestTune)
+tuned=classifier2$bestTune
+tuned=data.frame(lapply(tuned, as.character), stringsAsFactors=FALSE)
+for (i in seq(length(parameters))) eval(parse(text= paste0(parameters[i], "='", tuned[i], "'") )) 
+
+# AdaBoost.M1 
+# 
+# 5313 samples
+# 9 predictors
+# 2 classes: '0', '1' 
+# 
+# No pre-processing
+# Resampling: Cross-Validated (10 fold) 
+# Summary of sample sizes: 4782, 4782, 4781, 4782, 4781, 4782, ... 
+# Resampling results across tuning parameters:
+#   
+#   maxdepth  Accuracy   Kappa    
+# 1         0.9439103  0.5815363
+# 4         0.9435361  0.5930480
+# 8         0.9489915  0.6340390
+# 
+# Tuning parameter 'mfinal' was held constant at a value of 100
+# Tuning parameter 'coeflearn' was held constant at a value of Breiman
+# Kappa was used to select the optimal model using the largest value.
+# The final values used for the model were mfinal = 100, maxdepth = 8 and coeflearn = Breiman.
+```
+
+```{r message=FALSE, warning=FALSE}
+#http://datatechnotes.blogspot.com/2018/03/classification-with-adaboost-model-in-r.html
+library(adabag)
+set.seed(30)
+classifier_adabag=boosting(formula = rapid_int ~ persistence + product + Initial.Max + speed_z + speed_m + Jday + Maximum.Wind_p + Latitude_p + Longitude_p
+                        , data = data_training
+                        , boos=T #bootstrap
+                        , mfinal=100 #as.numeric(mfinal) 
+                        , coeflearn="Breiman" #coeflearn 
+                        #, control=rpart.control(maxdepth=as.numeric(maxdepth)) 
+                        ) 
+```
+
+```{r message=FALSE, warning=FALSE}
+values=c("max", "median", "min")
+values_i=c(length(classifier_adabag$weight), round(length(classifier_adabag$weight)/2), 1)
+weights=sort(classifier_adabag$weight)
+par(mfrow=c(1,length(values)))
+library(tree)
+for (i in 1:length(values)) {
+    temp=which(classifier_adabag$weight == weights[values_i[i]])
+    print(paste0(values[i], " weight: ", signif(weights[values_i[i]],3)))
+    tree=classifier_adabag$trees[[temp]]
+    plot(tree, uniform=TRUE, margin=0.1, main=values[i])
+    text(tree, use.n=TRUE, all=TRUE, cex=0.5)
+}
+par(mfrow=c(1,1))
+```
+Here, we have 100 trees in the ensemble and their weights are assigned according to their classification error rates. Looking at the trees with the highest (left), median (middle) and lowest (right) weights, we see that persistence remains to be the dominant predictor as the decision stump on the left has the highest weight. 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+png("adabag_trees.png")
+par(mfrow=c(1,length(values)))
+for (i in 1:length(values)) {
+    temp=which(classifier_adabag$weight == weights[values_i[i]])
+    tree=classifier_adabag$trees[[temp]]
+    plot(tree, uniform=TRUE, margin=0.1, main=values[i])
+    text(tree, use.n=TRUE, all=TRUE, cex=0.5)
+}
+dev.off()
+```
+
+The finer details are sorted out by the rest of the trees. Interestingly, the product between persistence and the initial maximum wind strength is determined to be the most important predictor overall by this algorithm. The values are based on the Gini gains as in `caret::varImp` we've used above, but this time they are [weighted](https://www.jstatsoft.org/article/view/v054i02/adabag_An_R_Package_for_Classification_with_Boosting_and_Bagging.pdf) too. 
+
+```{r message=FALSE, warning=FALSE}
+sort(classifier_adabag$importance, decreasing=T)
+```
+
+Applying this boosted tree to our test data, we find that kappa could get to 62.6%, finally beating the best decision tree from [Kernel 2](https://www.kaggle.com/junella/hurricane-strength-2-decision-tree/) (60.2%). 
+
+```{r message=FALSE, warning=FALSE}
+prediction=predict(classifier_adabag, newdata=data_test[, colnames(data_test) %in% c("persistence", "product" , "Initial.Max", "speed_z", "speed_m", "Jday"
+                                                                              , "Maximum.Wind_p", "Latitude_p", "Longitude_p")]
+                   ) #, type = 'class') 
+prediction=factor(prediction$class, levels=sort(unique(prediction$class)))
+```
+
+```{r message=FALSE, warning=FALSE}
+library(caret)
+Confusion_matrix_stats <- confusionMatrix(prediction, data_test$rapid_int, positive="1") #the other way round
+Confusion_matrix_stats$overall[2] 
+```
+
+This level of performance, however, isn't consistent. As the algorithm is trained on bootstrapped training data, there is an element of randomness involved and it hinges on the seed we set before using `adabag::boosting` to train the model, so I still want to find a better way to do the classification. 
+
+```{r include=FALSE}
+# n=1
+# while (kappa < 0.6022) {
+# set.seed(n)
+# classifier_adabag=boosting(formula = rapid_int ~ persistence + product + Initial.Max + speed_z + speed_m + Jday + Maximum.Wind_p + Latitude_p + Longitude_p
+#                            , data = data_training
+#                            , boos=T #bootstrap
+#                            , mfinal=100 #as.numeric(mfinal) 
+#                            , coeflearn=coeflearn #"Breiman"                         
+#                            #, control=rpart.control(maxdepth=as.numeric(maxdepth)) 
+# ) 
+# prediction=predict(classifier_adabag, newdata=data_test[, colnames(data_test) %in% c("persistence", "product" , "Initial.Max", "speed_z", "speed_m", "Jday"
+#                                                                                      , "Maximum.Wind_p", "Latitude_p", "Longitude_p")]
+# ) #, type = 'class') 
+# prediction=factor(prediction$class, levels=sort(unique(prediction$class)))
+# Confusion_matrix_stats <- confusionMatrix(prediction, data_test$rapid_int, positive="1") #the other way round
+# kappa=Confusion_matrix_stats$overall[2] 
+# print(paste0("n: ", n, "; kappa: ", kappa))
+# n=n+1
+# }
+# # [1] "n: 1; kappa: 0.572304607652948"
+# # [1] "n: 2; kappa: 0.548297437509825"
+# # [1] "n: 3; kappa: 0.540555569597857"
+# # [1] "n: 4; kappa: 0.554364783286984"
+# # [1] "n: 5; kappa: 0.53339295578294"
+# # [1] "n: 6; kappa: 0.508403885324723"
+# # [1] "n: 7; kappa: 0.50387334487742"
+# # [1] "n: 8; kappa: 0.54837899467927"
+# # [1] "n: 9; kappa: 0.58836416284076"
+# # [1] "n: 10; kappa: 0.569563386213674"
+# # [1] "n: 11; kappa: 0.536022870853702"
+# # [1] "n: 12; kappa: 0.563518954039941"
+# # [1] "n: 13; kappa: 0.550576209012846"
+# # [1] "n: 14; kappa: 0.581348844521301"
+# # [1] "n: 15; kappa: 0.536022870853702"
+# # [1] "n: 16; kappa: 0.580743558000332"
+# # [1] "n: 17; kappa: 0.544914117368546"
+# # [1] "n: 18; kappa: 0.51185873994358"
+# # [1] "n: 19; kappa: 0.59551858811156"
+# # [1] "n: 20; kappa: 0.549494186727772"
+# # [1] "n: 21; kappa: 0.553279902970829"
+# # [1] "n: 22; kappa: 0.580120087831229"
+# # [1] "n: 23; kappa: 0.580743558000332"
+# # [1] "n: 24; kappa: 0.568771982096938"
+# # [1] "n: 25; kappa: 0.546105590406929"
+# # [1] "n: 26; kappa: 0.53139984532096"
+# # [1] "n: 27; kappa: 0.552947180403164"
+# # [1] "n: 28; kappa: 0.568771982096938"
+# # [1] "n: 29; kappa: 0.572304607652948"
+# # [1] "n: 30; kappa: 0.625512510768393"
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(scales) #https://stackoverflow.com/questions/46063234/how-to-produce-a-confusion-matrix-and-find-the-misclassification-rate-of-the-na%C3%AF?rq=1
+ggplotConfusionMatrix <- function(x){
+  mytitle <- paste("Accuracy", percent_format()(x$overall[1])
+                   , "Kappa", percent_format()(x$overall[2])
+#                  , "F score", percent_format()(F1)
+                   )
+  p <-
+    ggplot(data = as.data.frame(x$table) ,
+           aes(x = Prediction, y = Reference)) +
+    geom_tile(aes(fill = log(Freq)), colour = "white") +
+    scale_fill_gradient(low = "white", high = "steelblue") +
+    geom_text(aes(x = Prediction, y = Reference, label = Freq)) +
+    theme(legend.position = "none") +
+    ggtitle(mytitle)
+  return(p)
+}
+
+ggplotConfusionMatrix(Confusion_matrix_stats)
+```
+```{r message=FALSE, warning=FALSE}
+png("Confusion_matrix.png")
+  ggplotConfusionMatrix(Confusion_matrix_stats)
+dev.off()
+```
