@@ -1,4 +1,4 @@
-# working directory for saving models
+# working directory for saving data
 
 Avoid uploading datasets saved to git repo as they are large and slow things down.
 
