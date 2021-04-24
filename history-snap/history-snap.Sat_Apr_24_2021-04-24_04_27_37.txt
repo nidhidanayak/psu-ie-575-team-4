@@ -1,0 +1,2240 @@
+ll
+cd Week-2/
+ll
+jupyter notebook
+ll
+cd ..
+cd ..
+cd ..
+cd -
+ll
+mkdir git.repo
+ll
+cd git.repo/
+ll
+git clone https://github.com/mnielsen/neural-networks-and-deep-learning.git
+ll
+git clone https://github.com/MichalDanielDobrzanski/DeepLearningPython.git
+ll
+du -hS
+du -hS .
+du -S .
+du -s .
+du -hs .
+du -s .
+history | grep @
+pbpaste | awk '{print $1"@amazon.com "}' | pbcopy 
+pbpaste | awk '{print $1"@amazon.com "}' 
+pbpaste | awk '{print $1"@amazon.com "}' 
+pb
+pbpaste 
+pbpaste | awk ' | tr '\r\n' '\n'{print $1"@amazon.com "}' 
+pbpaste | tr '\r\n' '\n' | awk '{print $1"@amazon.com "}' 
+pbpaste | tr '\r\n' '\n' | awk '{print $1"@amazon.com"}' 
+pbpaste | tr '\r\n' '\n' | awk '{print $1"@amazon.com"}' 
+pbpaste | tr '\r\n' '\n'
+pbpaste 
+pbpaste | tr -d '\r'
+pbpaste | tr -d '\r' | awk '{print $1"@amazon.com"}' 
+pbpaste | tr -d '\r' | awk '{print $1"@amazon.com"}' 
+pbpaste | tr -d '\r' | awk '{print $1"@amazon.com"}' | pbcopy 
+pbpaste | tr -d '\r' | awk '{print $1"@amazon.com"}' | pbcopy 
+pbpaste | tr -d '\r' | awk '{print $1"@amazon.com"}' | pbcopy 
+history
+history
+history | grep not
+ll
+cd..
+cd ..
+ll
+cd git.repo/
+ll
+mkdir homework
+ll
+cd homework/
+ll
+pip3 install numpy
+history | grep not
+jupyter notebook
+export PATH=/Library/TeX/texbin:$PATH
+jupyter notebook
+ll
+cd ..
+ll
+cd ..
+ll
+cd git.repo/
+ll
+cd DeepLearningPython/
+ll
+cat test.py 
+:q
+ll
+cd ..
+ll
+cd neural-networks-and-deep-learning/
+ll
+cd ..
+ll
+cd ..
+ll
+cd daan-570-mod-files/
+ll
+cd Coursera/
+ll
+cd ..
+ll
+cd ..
+ll
+find . | grep ipynb
+cd Coursera/
+cd Week-2/
+ll
+cd ..
+ll
+jupyter notebook
+cd ..
+ll
+jupyter notebook
+ll
+cd ..
+cd DAAN-575-302/
+ll
+cd
+cd -
+cd ..
+cd DAAN-570-302/
+ll
+cd YouTube/
+ll
+echo > links.txt
+vi links.txt 
+pbpaste > links.txt
+vi links.txt 
+clear
+history
+cd -
+cd Coursera/
+ll
+mkdir Week-3
+ll
+mv Week-2 Week-02
+mv Week-3 Week-03
+cd Week-03/
+ll
+jupyter notebook
+cd ..
+ll
+jupyter notebook
+pip3 install nbconvert --update
+pip3 install nbconvert -update
+pip3 install --help
+pip3 update nbconvert
+pip3 install nbconvert
+cd ..
+ll
+cd git.repo/
+ll
+cd homework/
+ll
+jupyter notebook
+jupyter notebook
+cd ..
+cd ..
+ll
+jupyter notebook
+python-config 
+python-config list
+man python
+python-config -h
+python-config --help
+python-config -v
+python-config --help
+python-config --help -v
+python-config --help --v
+python-config --help -vv
+python3 -v
+python3 -version
+python3 -Version
+python3 --version
+pbpaste | cut -d'>' -f 3-
+pbpaste | cut -d'>' -f 4-
+pbpaste | cut -d' ' -f 4-
+pbpaste | cut -d' ' -f 1-
+pbpaste | cut -d' ' -f 2-
+pbpaste | cut -d' ' -f 2- | pbcopy 
+cd
+history -w /dev/stdout > history_EOS_`date +%a_%b_%d_%F_%T`.txt
+ll -rt
+python --version.
+python --version
+python3 --version
+python3 --version
+pip install collections
+pip install 
+pip install pandoc
+pip install xelatex
+pip install xelatex
+ll
+cd ~/Google\ Drive/Documents/School/PSU/Graduate/DAAN-575-302/RStudio/
+ll
+ls
+ll
+ls
+cat *.Rhistory
+cat *.Rhistory | grep 30
+ll
+ls
+set
+pip install pandochistory
+history
+pbpaste | cut -d' ' -f 4,6- | pbcopy 
+pbpaste | cut -d':' -f 2- | pbcopy 
+pbpaste | cut -d':' -f 2- | pbcopy 
+pbpaste | cut -d':' -f 3- | pbcopy 
+pbpaste | cut -d':' -f 3- | pbcopy 
+pbpaste | cut -d'%' -f 2- 
+pbpaste | cut -d'%' -f 1 
+pbpaste | cut -d'%' -f 1 | pbcopy 
+kk
+kk
+ll
+alias ll='ls -l'
+ll
+cd
+ll
+cd -
+ll
+cd ..
+ll
+cd 
+cd Downloads/
+ll
+cd Kaggle/
+ll
+cat US_Accidents_Dec20.csv | wc -l
+cd ..
+ll
+cd Kaggle/
+ll
+cd youtube_data
+ll
+cat *.csv | wc -l
+cd ..
+cd weather_soil_data
+cat *.csv | wc -l
+cat *.csv | wc -l
+ll
+cd ..
+cd movie_data
+ll
+cat *.csv | wc -l
+cd ..
+cat data.csv | wc -l
+cd ..
+cd -
+cd spotify_century_data
+ll
+cat *.csv | wc -l
+cd ..
+cd us_election_2020_tweets
+cat *.csv | wc -l
+cd ..
+cd youtube_data_2
+cat *.csv | wc -l
+ls *.csv
+ll *.csv
+ll *.csv | wc -l
+history
+history | grep note
+cd
+ll
+cd ~/Google\ Drive/Documents/School/PSU/Graduate/DAAN-570-302/
+ll
+cd git.repo/
+ll
+cd homework/
+ll
+mv ~/Downloads/Planar\ data\ classification\ with\ one\ hidden\ layer\(Question\).zip .
+ll
+unzip Planar\ data\ classification\ with\ one\ hidden\ layer\(Question\).zip cd
+ll
+rm -rf __MACOSX/
+ll
+mv Planar\ data\ classification\ with\ one\ hidden\ layer\(Question\) planar_data
+ll
+cd planar_data/
+ll
+ll
+pip -v
+pip -V
+pip install sklearn
+pip install xelatex
+pip install nbconvert
+cd /Library/TeX/texbin
+ll
+cd -
+ll
+history
+c
+cd
+history -w /dev/stdout > history_EOS_`date +%a_%b_%d_%F_%T`.txt
+cd
+ll
+ls
+ll
+ll
+ls
+cd .RData 
+vi .RData 
+vi .Rhistory 
+ll
+cd Downloads/
+ll
+ll='ls -l'
+ll
+alias ll='ls -l'
+ll
+mv *.cvs excel/
+mv *.csv excel/
+mv *.xls excel/
+mv *.xlsx excel/
+mv *.xlsx excel/
+mv *.xlsm excel/
+mv *.xlsb excel/
+mv *.doc word/
+mv *.docx word/
+mkdir video
+mv *.mp4 video
+ll
+mkdir e-mail
+mv *.msg e-mail/
+ll
+mkdir pdf
+mv *.pdf pdf/
+mv *.png images/
+ll
+mkdir powerpoint
+mv *.pptx powerpoint/
+mkdir audio
+mv *.mp3 audio/
+mv *.wav audio/
+mv *.ppt powerpoint/
+mkdir archives
+mv *.zip archives/
+mv *.MOV video/
+mv *.gz archives/
+ll
+mkdir f-installer
+mv *.pkg f-installer/
+mv *.dmg f-installer/
+ll
+ls
+ls -w
+dir
+man ls
+ls
+ll
+set
+ll=''
+ll
+ls
+set
+ll
+mv *.PNG f-images/
+history | grep spee
+killall com.apple.speech.speechsynthesisd
+history
+pbpaste | cut -d' ' -f 4,6- | pbcopy 
+pbpaste 
+pbpaste | tr -d '\r'
+pbpaste | tr '\r\n' '\n'
+history | grep sed
+pbpaste | sed -E 's/^ *//; s/ *$//;' 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | tr '\t' ','
+pbpaste | sed -E 's/^ *//; s/ *$//;' | tr '\t' ','
+pbpaste | sed -E 's/^ *//; s/ *$//;'
+pbpaste | sed -E 's/^ *//; s/ *$//;' | awk -F'\t' '{print $1}'
+pbpaste | sed -E 's/^ *//; s/ *$//;' | awk -F'\t' '{print $1}'
+history | grep awk
+pbpaste | sed -E 's/^ *//; s/ *$//;' | awk -F'\t' '{print $1}'
+pbpaste | sed -E 's/^ *//; s/ *$//;'
+pbpaste | sed -E 's/^ *//; s/ *$//;'
+pbpaste | sed -E 's/^ *//; s/ *$//;' grep -E "[[:alpha:]]{16,20}"
+pbpaste | sed -E 's/^ *//; s/ *$//;' grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}"
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}"
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | more
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | more
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | more
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+echo a...j
+echo {a...j}
+echo {a..j}
+echo {a..p}
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}"
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}"
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}"
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+history
+pbpaste | cut -d' ' -f 4,6- | pbcopy 
+pbpaste | cut -d' ' -f 4,6- | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+history | grep @
+pbpaste | awk '{print $1"@amazon.com "}' | pbcopy 
+pbpaste | awk '{print $1"@amazon.com "}' | pbcopy 
+pbpaste 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | sed -E 's/^ *//; s/ *$//;' | grep -E "[[:alpha:]]{3}[[:digit:]]{1,2}" | pbcopy 
+pbpaste | awk '{print $1"@amazon.com "}' | pbcopy 
+pbpaste 
+history
+cd Kaggle/
+ll
+cd auto_accidents_data/
+ll
+cd ..
+ll
+cd spotify_century_data
+ll
+head *
+cd ..
+ll
+cd movie_data
+ll
+head *
+ll
+head *
+clear
+history
+pbpaste | cut -d' ' -f 4,6- | pbcopy 
+pbpaste | cut -d' ' -f 4,6- | pbcopy 
+pbpaste | cut -d' ' -f 4,6- | pbcopy 
+pbpaste | cut -d' ' -f 4,6- | pbcopy 
+pbpaste | cut -d' ' -f 4,6- | pbcopy 
+pbpaste | cut -d' ' -f 4,6- | pbcopy 
+pbpaste | grep docx
+pbpaste | grep docx | grep Luke
+pbpaste | cut -d' ' -f 4,6- | pbcopy 
+pbpaste 
+history | grep history
+cd
+ll
+history -w /dev/stdout > history_EOS_`date +%a_%b_%d_%F_%T`.txt
+ll
+cd ~/Google\ Drive/
+ll
+alias ll='ls -l'
+ll
+cd Documents/School/PSU/Graduate/DAAN-575-302/
+ll
+clear
+ll
+cd RStudio/
+cd ..
+ll
+mkdir git.repo
+cd git.repo/
+git clone https://github.com/PacktPublishing/-Mastering-Data-Analysis-with-R-v-.git .
+ll
+rm -rf *
+ll
+git clone https://github.com/PacktPublishing/-Mastering-Data-Analysis-with-R-v-.git
+ll
+cd -Mastering-Data-Analysis-with-R-v-/
+cd -Mastering-Data-Analysis-with-R-v-/
+mv -Mastering-Data-Analysis-with-R-v- Mastering-Data-Analysis-with-R-v
+mv \-Mastering-Data-Analysis-with-R-v- Mastering-Data-Analysis-with-R-v
+mv "-Mastering-Data-Analysis-with-R-v-" Mastering-Data-Analysis-with-R-v
+pbpaste 
+pbpaste | cut -d ' ' -f 2-
+pbpaste | cut -d ' ' -f 2- | pbcopy 
+pbpaste | cut -d ' ' -f 2- | pbcopy 
+pbpaste | cut -d ' ' -f 2- | pbcopy 
+pbpaste | cut -d ' ' -f 2- | pbcopy 
+pbpaste | cut -d ' ' -f 2- | pbcopy 
+pbpaste | cut -d ' ' -f 2- | pbcopy 
+pbpaste | cut -d ' ' -f 2- | pbcopy 
+pbpaste 
+pbpaste | tr '>' '\n'
+pbpaste | tr '>' '\n' | pbcopy 
+pbpaste | tr '>' '\n' | pbcopy 
+ll
+cd Downloads/
+ll
+ll
+ll
+ll
+cd
+ll
+ll -a
+ls -la
+vi .bash_profile 
+ll
+exp
+set
+ll
+vi .bash_profile 
+echo $SHELL
+exec bash
+export
+set
+set
+ll
+history
+.~/.bash_profile
+. ~/.bash_profile
+ll
+. ~/.bash_profile
+ll
+conda config --set auto_activate_base False
+. ~/.bash_profile
+ll
+ll
+. ~/.bash_profile
+ll
+vi .bash_profile 
+. ~/.bash_profile
+ll
+ll
+ll
+ll -a
+export PS1
+set | grep PS1
+vi .bash_profile 
+vi .bash_profile 
+. ~/.bash_profile
+ll
+set
+ll -G
+vi .bash_profile 
+. ~/.bash_profile
+ll
+touch index.php
+ll
+ll
+ll -h
+ll -G
+vi .bash_profile 
+ll
+ll
+vi .bash_profile 
+ll
+rm -f index.php 
+ll
+touch index.php
+chmod 744 index.php 
+ll
+cd ~/Downloads/
+ll
+set
+vi .bash_profile 
+cd
+vi .bash_profile 
+ll
+ll
+chmod index.php 755
+chmod 755 index.php 
+ll
+ll
+cd ~/Downloads/
+ll
+ls -w
+ls -d
+ls -C
+ls -1
+ls
+ls | column -t
+ls
+ls -C
+ls -1
+ll
+alias ls='ls'
+ls
+ll
+ll
+ls ~/Downloads/
+ls -C  ~/Downloads/
+ll
+mkdir test
+cd test
+ll
+touch {a..z}.txt
+ll
+ls
+ls -C1
+ls -C
+ls
+cd ..
+ls -C
+ls
+ls --format=vertical
+ls | col
+ls -Q
+ll
+ls
+cd test
+ls
+ll
+ls
+ll
+history
+pbpaste | tr '>' '\n' | pbcopy 
+history
+ll
+cd Downloads/
+ll
+unzip Yoga-82.rar 
+pip install unrar
+pip show unrar
+cd /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/
+ll
+cd unrar
+ll
+cd tests/
+ll
+cd ..
+ll
+pip install patool
+patool 
+patool -h
+patool --help
+man patool
+patool --help
+man patool
+ll
+cd
+ll
+vi .bash_profile 
+. ~/.bash_profile 
+man patool
+ll
+cd ~/Downloads/
+ll -st
+ll -rt
+px Yoga-82.rar 
+patool --help
+pip install patoolib
+patool --help
+pip install patool
+patool 
+patool --help
+whereis patool
+whatis patool
+man patool
+man patool
+patool extract Yoga-82.rar 
+pip install pyunpack
+patool extract Yoga-82.rar 
+pip install patoolib
+pip -vvv install patoolib
+whatis patool
+whereis patool
+pip3 install patool
+cd /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages
+ll
+cd patool
+cd patoolib/
+ll
+cd ..
+ll
+cd patool-1.12.dist-info/
+ll
+find .
+ll -R
+ll -r
+cd WHEEL 
+ll
+history
+history | grep show
+pip show unrar
+pip show patool
+set | grep patool
+set | grep pip
+set | grep pyth
+set | grep path
+set | grep PATH
+cd /Library/Frameworks/Python.framework/Versions/3.8/bin
+ll
+vi patool 
+vi patool 
+python --v
+python --version
+history 
+patool extract Yoga-82.rar 
+vi patool 
+pwd
+vi patool 
+patool extract Yoga-82.rar 
+cd ~/Downloads/
+patool extract Yoga-82.rar 
+pip install unrar
+ll
+cd -
+ll
+cd -
+ll
+patool extract Yoga-82.rar 
+kk
+history
+history | grep for
+cd
+ll
+cat history_EOS_* | grep for
+/Applications/Python\ 3.8/Install\ Certificates.command ; exit;
+ll
+python train_zoo_classifier.py -d zoo
+cd ~/Downloads/
+patool extract Yoga-82.rar
+pip show unrar
+cd /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages
+ll
+cd unrar
+ll
+vi rarfile.py 
+cd -
+cd -
+cd ..
+ll
+cd -
+cd ~/Downloads/
+ll
+patool extract Yoga-82.rar
+python3
+history | grep unrar
+pip show unrar
+pip install py7zr
+patool extract Yoga-82.rar
+pip uninstall py7zr
+set
+set | grep path
+set | grep PATH
+patool extract Yoga-82.rar
+sudo patool extract Yoga-82.rar
+sudo patool extract Yoga-82.rar
+which
+which rar
+which unrar
+patool extract Yoga-82.rar
+ll
+ll -rt
+pwd
+ll
+history | grep his
+cd
+vi .bash_profile 
+vi .bash_profile 
+. ~/.bash_profile 
+history-snap 
+ll
+ll -rt
+ll
+mkdir history-snap
+ll
+cd history
+cd history-snap/
+ll
+cd ..
+ll
+mv history* history-snap/
+ll
+vi .bash_profile 
+vi .bash_profile 
+vi .bash_profile 
+date +%a_%b_%d_%F_%T
+date +%a_%b_%d_%F_%H_%M_%S
+vi .bash_profile 
+. ~/.bash_profile 
+ll
+cd history-snap/
+history-snap 
+ll
+ll -rt
+cd ..
+vi .bash_profile 
+vi .bash_profile 
+. ~/.bash_profile 
+cd history-snap/
+history-snap 
+ll
+cd ..
+vi .bash_profile 
+cp .bash_profile ~/Google\ Drive/Documents/School/PSU/Graduate/DAAN-570-302/git.repo/
+ll
+cd 
+cd ~/Google\ Drive/Documents/School/PSU/Graduate/DAAN-570-302/git.repo/
+ll
+ll
+ll -a
+ll
+mkdir bash
+mv .bash_profile bash/
+ll
+cd ..
+ll
+history | grep gzip
+history | grep tar
+history
+patool extract Yoga-82.rar
+pbpaste 
+pbpaste | pbcopy 
+pbpaste | pbcopy 
+cd git.repo/in-class/
+ll
+cp 3.5-classifying-movie-reviews-1.ipynb 3.5-classifying-movie-reviews-1.ljackson.ipynb 
+pip install keras
+pip install tensorflow
+mv ~/Downloads/2.1-a-first-look-at-a-neural-network-1.ipynb .
+ll
+mv 2.1-a-first-look-at-a-neural-network-1.ipynb 2.1-a-first-look-at-a-neural-network-1.ljackson.ipynb 
+cp 2.1-a-first-look-at-a-neural-network-1.ljackson.ipynb 2.1-a-first-look-at-a-neural-network-1.ipynb 
+cp ~/Downloads/3.7-predicting-house-prices-1.ipynb .
+cp 3.7-predicting-house-prices-1.ipynb 3.7-predicting-house-prices-1.ljackson.ipynb 
+cd ..
+ll
+mv ~/Downloads/2.1\ Backpropagation\ Exercise\(Question\).ipynb homework/
+cd homework/
+ll
+cp 2.1\ Backpropagation\ Exercise\(Question\).ipynb 2.1\ Backpropagation\ Exercise\(Question\).ljackson.ipynb 
+ll
+clear
+pbpaste 
+pbpaste | pbcopy 
+pbpaste | cut -d'[' -f 1 | pbcopy 
+for i in {1..100}; do say "You suck to the power of "$[ 1 + $[ RANDOM % 983 ]]; sleep 0; done;
+for i in {1..100}; do say "You suck to the power of "$[ 1 + $[ RANDOM % 983 ]]; sleep $[ 1 + $[ RANDOM % 10 ]]; done;
+say
+say --help
+man say
+say -v '?'
+for i in {1..100}; do say -v Bubbles "You suck to the power of "$[ 1 + $[ RANDOM % 983 ]]; sleep $[ 1 + $[ RANDOM % 10 ]]; done;
+for i in {1..100}; do say -v "Good New" "You suck to the power of "$[ 1 + $[ RANDOM % 983 ]]; sleep $[ 1 + $[ RANDOM % 10 ]]; done;
+for i in {1..100}; do say -v "Anna" "You suck to the power of "$[ 1 + $[ RANDOM % 983 ]]; sleep $[ 1 + $[ RANDOM % 10 ]]; done;
+for i in {1..100}; do say -v "Anna" "Du has kein wert als mensch und dein suck gleich"$[ 1 + $[ RANDOM % 983 ]]; sleep $[ 1 + $[ RANDOM % 10 ]]; done;
+for i in {1..100}; do say -v "Hysterical" "You suck to the power of "$[ 1 + $[ RANDOM % 983 ]]; sleep $[ 1 + $[ RANDOM % 10 ]]; done;
+for i in {1..100}; do say -v "Pipe Organ" "You suck to the power of "$[ 1 + $[ RANDOM % 983 ]]; sleep $[ 1 + $[ RANDOM % 10 ]]; done;
+for i in {1..100}; do say -v "Princess" "You suck to the power of "$[ 1 + $[ RANDOM % 983 ]]; sleep $[ 1 + $[ RANDOM % 10 ]]; done;
+for i in {1..100}; do say -v "Rishi" "You suck to the power of "$[ 1 + $[ RANDOM % 983 ]]; sleep $[ 1 + $[ RANDOM % 10 ]]; done;
+for i in {1..100}; do say -v "Rishi" "Ohhh miii Gott You suck to the power of "$[ 1 + $[ RANDOM % 983 ]]; sleep $[ 1 + $[ RANDOM % 10 ]]; done;
+for i in {1..100}; do say -v "Rishi" "Ohhh my Gott You suck to the power of "$[ 1 + $[ RANDOM % 983 ]]; sleep $[ 1 + $[ RANDOM % 10 ]]; done;
+for i in {1..100}; do say -v "Rishi" "Ohhh my Gott, You suck to the power of "$[ 1 + $[ RANDOM % 983 ]]; sleep $[ 1 + $[ RANDOM % 10 ]]; done;
+for i in {1..100}; do say -v "Rishi" "Ohhh my God, You suck to the power of "$[ 1 + $[ RANDOM % 983 ]]; sleep $[ 1 + $[ RANDOM % 10 ]]; done;
+for i in {1..100}; do say -v "Rishi" "Ohhh my Gottt, You suck to the power of "$[ 1 + $[ RANDOM % 983 ]]; sleep $[ 1 + $[ RANDOM % 10 ]]; done;
+for i in {1..100}; do say -v "Rishi" "Ohhh my Gottt, You really suck to the power of "$[ 1 + $[ RANDOM % 983 ]]; sleep $[ 1 + $[ RANDOM % 10 ]]; done;
+for i in {1..100}; do say -v "Rishi" "Ohhh my Gottt, You really really really suck to the power of "$[ 1 + $[ RANDOM % 983 ]]; sleep $[ 1 + $[ RANDOM % 10 ]]; done;
+for i in {1..100}; do say -v "Rishi" "Ohhh my Gottt, You really suck to the power of "$[ 1 + $[ RANDOM % 983 ]]; sleep $[ 1 + $[ RANDOM % 10 ]]; done;
+for i in {1..100}; do say -v "Rishi" "Ohhh my Gottt, You really really suck to the power of "$[ 1 + $[ RANDOM % 983 ]]; sleep $[ 1 + $[ RANDOM % 10 ]]; done;
+ll
+cp ~/Downloads/Intel-DL101-Class3/ .
+cp -R ~/Downloads/Intel-DL101-Class3/ .
+öö
+ll
+cp -R ~/Downloads/Intel-DL101-Class3 .
+ll
+ll -rt
+rm -rf Setup_Anaconda.docx Week3_Backprop* Datasets_Attributions.docx 
+ll
+cp -R ~/Downloads/Intel-DL101-Class4 .
+ll
+rm -rf Intel-DL101-Class*
+ll
+ll
+cd ..
+ll
+cd intel_deep_learning/
+ll
+pbpaste > link.txt
+cat link.txt 
+cd ..
+cd homework/
+ll
+cp 05_Keras_MNIST-Regularization\(Q\).ipynb 05_Keras_MNIST-Regularization\(Q\).ljackson.ipynb 
+luke 
+unrar 
+history | grep Libra
+cd /Library/Frameworks/Python.framework/Versions/3.8/bin
+ll
+mv luke unrar 
+ll
+cd -
+ll
+cd ..
+ll
+cd ..
+ll
+cd Project/
+ll
+cd ..
+ll
+cd Project/
+ll
+cd Reference-Material/
+ll
+cp Yoga-82.rar ../../git.repo/
+cd ../../git.repo/
+ll
+mkdir project
+ll
+mv Yoga-82.rar project/
+ll
+cd project/
+ll
+mkdir data-sets
+ll
+mv Yoga-82.rar data-sets/
+ll
+cd data-sets/
+unrar x Yoga-82.rar 
+ll
+rm -f Yoga-82.rar 
+ll
+cd Yoga-82/
+ll
+cd yoga_dataset_links/
+ll
+cat * | more
+ll
+cd 
+ll
+cd .ssh/
+ll
+vi id_rsa 
+history | grep 64
+ssh -p 2222 root@64.251.22.179
+ssh m31uk3@pluto.whatbox.ca
+history | grep rsync
+cd
+ll
+cd history-snap/
+cat * | grep rsync
+cd .
+cd -
+cd ~/Google\ Drive/Documents/School/PSU/Graduate/DAAN-570-302/git.repo/project/
+ll
+cd data-sets/Yoga-82/
+ll
+cd yoga_dataset_links/
+ll
+rsync --bwlimit=2048 --partial --progress -vvrae 'ssh' Tree_Pose_or_Vrksasana_.txt m31uk3@pluto.whatbox.ca:~/"'files/'"
+history
+history
+cd ..
+ll
+cd ..
+ll
+cd ..
+cd ..
+ll
+cd homework/
+cd assignment_03/
+ll
+mv ~/Downloads/multi-class-image-classification-cnn.ipynb .
+ll
+cd ..
+cd ..
+jupyter notebook
+cd ~/Downloads/DAAN-570-302-scratch/
+ll
+ll
+jupyter notebook
+ll
+cd yogo_test_set/
+ll
+cd ..
+l
+jupyter notebook
+cd ~/Downloads/DAAN-570-302-scratch/
+ll
+cd assignment_03/
+ll
+cp animal-image-dataset-prediction.ipynb animal-image-dataset-prediction.ljackson.ipynb
+cp multi-class-image-classification-cnn.ipynb multi-class-image-classification-cnn.ljackson.ipynb
+ll
+cd image
+cd images
+ll
+ll -a
+find . | grep .*
+find . | grep .DS_Store 
+rm -f .DS_Store 
+find . | grep .DS_Store 
+pwd
+ll
+cd ..
+ll
+python3 train_zoo_classifier.py 
+python3 train_zoo_classifier.py 
+python3 train_zoo_classifier.py -h
+ll
+python3 train_zoo_classifier.py -h
+python3 train_zoo_classifier.py -h
+python3 train_zoo_classifier.py -h
+python untitled.py 
+python untitled.py -h
+python3 train_zoo_classifier.py -h
+python3 train_zoo_classifier.py -h
+python3 train_zoo_classifier.py -h
+python3 train_zoo_classifier.py -h
+python3 train_zoo_classifier.py -h
+python3 train_zoo_classifier.py -d zoo -m zoo_calssifier.model -p zoo_performance_plot.png
+python3 train_zoo_classifier.py -d zoo -m zoo_calssifier.model -p zoo_performance_plot.png
+ll -rt
+open zoo_performance_plot.png 
+python3 train_zoo_classifier.py
+python3 train_zoo_classifier.py -h
+python3 train_zoo_classifier.py -h
+python3 train_zoo_classifier.py -h
+python3 train_zoo_classifier.py -h
+python3 train_zoo_classifier.py -h
+python3 train_zoo_classifier.py -h
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+ll
+open zoo_classifier.plot.png 
+python3 train_zoo_classifier.py -h
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo -e 20
+python3 train_zoo_classifier.py -d zoo -e 20
+python3 train_zoo_classifier.py -d zoo -e 20
+python3 train_zoo_classifier.py -d zoo -e 2
+python3 train_zoo_classifier.py -d zoo -e 2
+python3 train_zoo_classifier.py -d zoo -e 2
+python3 train_zoo_classifier.py -d zoo -e 2
+python3 train_zoo_classifier.py -d zoo -e 3
+python3 train_zoo_classifier.py -d zoo -e 3
+python3 train_zoo_classifier.py -d zoo -e 3
+python3 train_zoo_classifier.py -d zoo -e 20 -t 60 -v 20
+open zoo_classifier.plot.png 
+python3 train_zoo_classifier.py -d zoo -e 3
+python3 train_zoo_classifier.py -d zoo -e 3
+python3 train_zoo_classifier.py -d zoo -e 3
+ll -rt
+python3 train_zoo_classifier.py -d zoo -e 3
+python3 train_zoo_classifier.py -d zoo -e 3
+python3 train_zoo_classifier.py -d zoo -e 3
+python3 train_zoo_classifier.py -d zoo -e 3
+pip install pydot
+python3 train_zoo_classifier.py -d zoo -e 3
+python3 train_zoo_classifier.py -d zoo -e 3
+python3 train_zoo_classifier.py -d zoo -e 6
+ll
+cp train_zoo_classifier.py train_zoo_classifier.py.2 
+mv train_zoo_classifier.py train_hw_classifier.py
+mv train_zoo_classifier.py.2 train_zoo_classifier.py
+ll -rt
+python3 train_zoo_classifier.py -d zoo -e 7
+python3 train_zoo_classifier.py -d zoo -e 7
+python3 train_zoo_classifier.py -d zoo -e 7
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo -e 10 -t 50 -v 20
+python3 train_zoo_classifier.py -d zoo -e 10 -t 50 -v 20
+python3 train_zoo_classifier.py -d zoo -e 10 -t 50 -v 20
+pwd
+python3 train_zoo_classifier.py -d zoo -e 10 -t 40 -v 20
+python3 train_zoo_classifier.py -d zoo -e 10 -t 40 -v 20
+python3 train_zoo_classifier.py -d zoo -e 10 -t 40 -v 20
+python3 train_zoo_classifier.py -d zoo -e 10 -t 40 -v 20
+python3 train_zoo_classifier.py -d zoo -e 10 -t 40 -v 20
+exiftool -h
+pwd
+cd ..
+ll
+pwd
+git clone https://github.com/keras-team/keras-io.git
+ll
+cd keras-io/
+ll -a
+rm -rf .*
+ll
+ll -a
+du -Sh
+du -Sh .
+du -sH .
+du -sh .
+cd ..
+ll
+history
+python3 train_zoo_classifier.py -d zoo
+ll
+history
+pwd
+cd assignment_03/
+ll
+ll -rt
+pwd
+history
+pwd
+ll -rt
+history
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo
+python3 train_zoo_classifier.py -d zoo -e 10 -t 50 -v 30
+python3 train_zoo_classifier.py -d zoo -e 5 -t 50 -v 30
+ll
+cp train_zoo_classifier.py test_zoo_classifier.py 
+python test_zoo_classifier.py -d zoo
+ll -rt
+python test_zoo_classifier.py -d zoo -m MyModel_tf/
+python test_zoo_classifier.py -d zoo -m MyModel_tf/
+python test_zoo_classifier.py -d zoo -m MyModel_tf
+python test_zoo_classifier.py -d zoo -m zoo_classifier.model
+python3 test_zoo_classifier.py -d zoo -m MyModel_tf/
+ll
+rm -rf MyModel_*
+ll
+ll -rt
+rm -rf zoo_classifier.model/
+python3 train_zoo_classifier.py -d zoo -e 5 -t 50 -v 30
+ll -rt
+python3 test_zoo_classifier.py -d zoo -m zoo_classifier.model/
+python3 test_zoo_classifier.py -d zoo -m zoo_classifier.model/
+ll -rt
+ll -rt
+mv zoo_classifier.model/ zoo_classifier.model_0
+python3 test_zoo_classifier.py -d zoo -m zoo_classifier.model/
+python3 test_zoo_classifier.py -d zoo -m zoo_classifier.model/
+cp zoo_classifier.model_0/ zoo_classifier.model
+cp -r zoo_classifier.model_0/ zoo_classifier.model
+ll
+ll
+cp -r zoo_classifier.model_0/ zoo_classifier.model
+python3 test_zoo_classifier.py -d zoo -m zoo_classifier.model/
+python3 test_zoo_classifier.py -d zoo -m zoo_classifier.model/
+python3 test_zoo_classifier.py -d zoo -m zoo_classifier.model/
+python3 test_zoo_classifier.py -d zoo -m zoo_classifier.model/
+history
+python3 train_zoo_classifier.py -d zoo -e 1 -t 5
+python3 train_zoo_classifier.py -d zoo -e 1 -t 5
+python3 train_zoo_classifier.py -d zoo -e 1 -t 5
+python3 train_zoo_classifier.py -d zoo -e 1 -t 5
+python3 train_zoo_classifier.py -d zoo -e 1 -t 5
+history
+python3 test_zoo_classifier.py -d zoo -m zoo_classifier.model/
+python3 train_zoo_classifier.py -d zoo -e 1 -t 5
+python3 train_zoo_classifier.py -h
+python3 train_zoo_classifier.py -h
+python3 train_zoo_classifier.py -h
+python3 test_zoo_classifier.py -h
+uuname -a
+systeminfo
+system_profiler 
+uname -a
+pwd
+python3 test_zoo_classifier.py -d zoo -m zoo_classifier.model/ -i zoo_classifier.plot.png 
+python3 test_zoo_classifier.py -d zoo -m zoo_classifier.model/ -i zoo_classifier.plot.png 
+python3 train_zoo_classifier.py -d zoo -e 1 -t 3
+pwd
+python3 train_zoo_classifier.py -d zoo -e 10 -t 80 -v 20
+ll
+ll -rt
+tar zcvf zoo_classifier.tar.gz *zoo_classifier.py
+ll
+ll -rt
+python3 train_zoo_classifier.py -d zoo -e 1 -t 3
+ll
+open zoo_performance_plot.png 
+ll -rt
+open train_zoo_classifier.plot.png 
+ll -rt
+pwd
+open train_zoo_classifier.plot.png 
+ll
+python3 train_zoo_classifier.py -d zoo -e 5 -t 80 -v 20
+pbpaste 
+pbpaste 
+pbpaste | cut -c 4-
+pbpaste | cut -c 3-
+pbpaste | cut -c 3- | pbcopy 
+history | grep ">"
+pbpaste | tr '>' '\n' | pbcopy 
+pbpaste | tr '>' '\n' | pbcopy 
+pbpaste | tr '>' '\n' | pbcopy 
+> regtree.tuned <- rpart(LeagueIndex ~ ., data = skillcraft_train, control = rpart.control(minsplit = 35, cp = 0.002, maxdepth = 6))
+ll -rt
+ll -rt
+pbpaste | tr '>' '\n' | pbcopy 
+pbpaste | tr '>' '\n' | pbcopy 
+cd Downloads/
+ll
+mkdir white-out
+cd white-out/
+git clone ssh://git.amazon.com/pkg/MerchImageDiagnostic
+git clone ssh://git.amazon.com/pkg/MerchImageDiagnostic
+history | grep xattr
+cd
+cd history-snap/
+ll
+ll -rt
+cat history-snap.Mon_Apr_05_2021-04-05_11_33_34.txt | grep xattr
+cat history-snap.Mon_Apr_05_2021-04-05_11_33_34.txt
+ll
+cd
+ll
+cd ~/Downloads/
+ll -rt
+xattr -c ExifTool-12.24.dmg 
+ll -rt
+ll -rt
+xattr -c ExifTool-12.24.dmg 
+ll -rt
+whatis xattr
+ll
+ll -rt
+pbpaste | grep eric
+pbpaste | grep -i eric
+pbpaste | grep -i eric | pbcopy 
+pbpaste 
+pbpaste | cut -c 4-
+pbpaste | cut -d' ' -f 2-
+pbpaste | cut -d' ' -f 2-
+pbpaste | cut -d' ' -f 1-
+pbpaste | cut -d' ' -f 2-
+pbpaste | cut -d' ' -f 2- | pbcopy 
+echo "\\ant\finance\FC_Finance\Site_Controller\Controller - LEX3\Merch_By_Amazon\Opex\MbA_FCLM_Data_Pull"
+history
+pbpaste 
+pbpaste | grep -v ":"
+pbpaste | pbcopy 
+pbpaste > eric.txt
+ll
+history
+file
+cd ll
+cd Downloads/
+ll
+cd 
+ll
+cd psu/
+ll
+cd daan-570
+ll
+cd Project/
+ll
+cd DAAN-570-302-Group-1-Project
+ll
+ls -1
+ls -1
+ls -1
+cd ..
+cd DAAN-570-302-Group-1-Project
+ll
+ls -1
+cd ..
+ll
+pwd
+cd Downloads/
+ll
+ll -rt
+ll
+ll
+ll -rt
+history | gzip
+history | grep gzip
+tar xz unrar_MacOSX_10.13.2_64bit.gz 
+tar fxz unrar_MacOSX_10.13.2_64bit.gz 
+tar zxf unrar_MacOSX_10.13.2_64bit.gz 
+tar zxf "unrar_MacOSX_10.13.2_64bit (2).gz"
+gzip -h
+gzip -dk unrar_MacOSX_10.13.2_64bit.gz 
+ll
+ll -rt
+gzip -dk "unrar_MacOSX_10.13.2_64bit (2).gz"
+ll -rt
+patool extract Yoga-82.rar
+luke -h
+luke 
+unrar
+mkdir yoga-test
+ll
+cd yoga-test/
+cp ../Yoga-82.rar .
+ll
+luke x Yoga-82.rar 
+ll
+cd Yoga-82
+ll
+cd
+cd ~/Google\ Drive/
+ll
+cd Documents/School/PSU/Graduate/DAAN-570-302/
+ll
+cd git.repo/
+ll
+mkdir in-class
+cd in-class/
+mv ~/Downloads/3.5-classifying-movie-reviews-1.ipynb .
+ll
+jupyter notebook
+ll
+cd ..
+ll
+cd homework/
+ll
+jupyter notebook
+l
+cd..
+ll
+cd ..
+ll
+cd ..
+ll
+cd Coursera/
+ll
+cd Week-03
+ll
+cd -
+cd ..
+cd git.repo/homework/
+ll
+jupyter notebook
+pip install pandas
+pip install graphviz
+ll
+open 05_Keras_MNIST-Regularization\(Q\).ljackson.pdf 
+pip install skater
+pip unistall skater
+pip uninstall skater
+dot_clean -h
+ll
+cd ..
+ll
+cd ..
+ll
+cd cd ..
+ll
+cd ..
+ll
+cd IE-575-302/
+cd ..
+ll
+ll -a
+chown 755 PSU-General/
+sudo chown 755 PSU-General/
+ll
+chowm lujackso:staff PSU-General/
+chown lujackso:staff PSU-General/
+sudo chown lujackso:staff PSU-General/
+ll
+sudo chown 755 PSU-General/
+ll
+sudo chown lujackso:staff PSU-General/
+sudo chmod 755 PSU-General/
+ll
+cd IE-575-302/
+ll
+cd git.repo/
+ll
+cd Mastering-Data-Analysis-with-R-v-/
+ll
+cd 9781787125100_Code
+ll
+cd .
+ll
+ll a
+ll -a
+cd ..
+ll
+cd Code\ for\ Section\ 
+cd Code\ for\ Section\ 1
+ll
+pbpaste 
+pbpaste | pbcopy 
+history
+history
+ll
+cd ..
+cd
+cd ~/Downloads/DAAN-570-302-scratch/
+ll
+cd assignment_03/
+ll
+python3 test_zoo_classifier.py -d zoo -m zoo_classifier.model_0/
+python3 test_zoo_classifier.py -d zoo -m zoo_classifier.model_0/ -v 40
+python3 test_zoo_classifier.py -d zoo -m zoo_classifier.model_0/ -v 40
+ll
+pwd
+pwd
+ll
+ln
+ln -s 575 ~/Google\ Drive/Documents/School/PSU/Graduate/DAAN-570-302/
+ll
+ll -a
+cd ~/Google\ Drive/Documents/School/PSU/Graduate/DAAN-570-302/
+ll
+unlink 575
+c d-
+cd -
+ll
+ln -s ~/Google\ Drive/Documents/School/PSU/Graduate/DAAN-570-302/ daan-575
+ln -s ~/Google\ Drive/Documents/School/PSU/Graduate/IE-575-302/ ie-575
+mv daan-575 daan-570
+ll
+ll
+cd ie-575
+cd ..
+mkdir psu
+mv daan-570 ie-575 psu/
+ll
+cd psu/ie-575
+ll
+cd ..
+ll
+cd daan-570
+ll
+cd ..
+cd ie-575
+ll
+cd mod-files-parse/
+ll
+pbpaste > book_readings.txt
+vi book_readings.txt 
+pbpaste > book_readings.txt
+vi book_readings.txt 
+ll
+pwd
+cd ..
+ll
+cd git.repo/
+ll
+git clone https://github.com/dipanjanS/practical-machine-learning-with-python.git
+ll
+cd practical-machine-learning-with-python/
+ll
+cd notebooks/
+ll
+jupyter notebook
+jupyter notebook
+ll
+pwd
+cd ..
+cd ..
+cd ..
+ll
+cd ..
+ll
+cd daan-570
+ll
+cd git.repo/
+ll
+git clone https://github.com/cs231n/cs231n.github.io.git
+ll
+clear
+history | grep cut
+pbpaste | cut -d' ' -f 4,6- | pbcopy 
+clear
+pbpaste | sed 's/[[:alnum:]//g'
+pbpaste | sed 's/[[:alnum:]]//g'
+pbpaste | sed 's/[^[:alnum:]]//g'
+pbpaste | sed 's/[^[:alnum:]]/_/g'
+pbpaste | sed 's/[^[:alnum:]]/_/g'
+pbpaste | sed 's/[^[:alnum:]]/_/g'
+pbpaste | sed 's/([^[:alnum:]])/_/g'
+pbpaste | sed 's/\([^[:alnum:]]\)\1\+/\1/g'
+pbpaste | sed 's/\([^[:alnum:]]\)\1\+/\1/g'
+pbpaste | sed 's/\([^[:alnum:]]\)\1\+/\1/g'
+pbpaste | sed 's/[^[:alnum:]]/_/g'
+pbpaste | sed 's/[^[:alnum:]]/_/g'
+pbpaste | sed 's/[^[:alnum:]]/_/g'; 's/\(.\)\1/\1/g';
+pbpaste | sed 's/[^[:alnum:]]/_/g; s/\(.\)\1/\1/g';
+pbpaste | sed 's/[^[:alnum:]]/_/g; s/\(.\)\1/\1/g';
+pbpaste | sed 's/[^[:alnum:]]/_/g; s/\(.\)\1/\1/g';
+pbpaste | sed 's/[^[:alnum:]]/_/g' | sed 's/\(.\)\1/\1/g'
+pbpaste | sed 's/[^[:alnum:]]/_/g' | sed 's/_/_/g'
+pbpaste | sed 's/[^[:alnum:]]/_/g' | sed 's/\(.\)\1/\1/g'
+echo HHEELLLLOO | sed 's/\(.\)\1/\1/g'
+pbpaste | sed 's/[^[:alnum:]]/_/g; s/\(.\)\1/\1/g';
+pbpaste | sed 's/[^[:alnum:]]/_/g; s/\(_\)\1/\1/g';
+pbpaste | sed 's/[^[:alnum:]]/_/g; s/\(_\)\1/\1/g'; | pbcopy 
+pbpaste | sed 's/[^[:alnum:]]/_/g; s/\(_\)\1/\1/g'; | pbcopy 
+pbpaste | sed 's/[^[:alnum:]]/_/g; s/\(_\)\1/\1/g'
+pbpaste | sed 's/[^[:alnum:]]/_/g; s/\(_\)\1/\1/g' | pbcopy 
+ll
+pwd
+cd homework/
+ll
+cd assignment_03/
+ll
+cd images/
+ll
+file 
+file *
+man file
+find . -type f -exec file -- {} +
+find .jpg -type f -exec file -- {} +
+find *.jpg -type f -exec file -- {} +
+find . -type f -exec file -- {} +
+find . -type f -exec file -- {} + | grep .jpg
+ll
+find . -type f -exec file -- {} + | grep .jpg
+find . -type f -exec file -- {} + | grep .jpg | wc -l
+open ./panda/panda_00490.jpg
+find . -type f -exec file -- {} + | grep .jpg | pbcopy 
+find . -type f -exec file -- {} + | grep .jpg | awk
+history | grep awk
+cat ~/history-snap/history* | grep awk
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[,;]' '{for (i=1; i<=NF; i++) printf $i"\t"; if (i = NF) print "Cols:"NF;}'
+cat ~/history-snap/history* | grep awk
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[,;]' '{for (i=1; i<=NF; i++) printf $i"\t"; if (i = NF) print "Cols:"NF;}'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[,;:]' '{print $1 $5}' | head
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[,;:]' '{print $1,$5}' | head
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $1,$5}' | head
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $2,$3,$7}' | head
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $2,$3,$7-}' | head
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $2,$3,$7}' | head
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{$2,$3,$7}1' | head
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{$2=""}1' | head
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{$2,$3,$7 print}' | head
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{$1=""; print}' | head
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{$1=""; print}' | head
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{$1=""; print}' | head
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{$1=$""; print}' | head | pbcopy 
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{$1=$""; print}' | head 
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{$1=""; print}' | head | pbcopy 
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' 'BEGIN {FS="\t"}; {$1=""; print}' | head | pbcopy 
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' 'BEGIN {FS="\t"}; {$1=""; print}' | head
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS='\t';$1=""; print}' | head
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$1=""; print}' | head
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$1=""; print}' | pbcopy 
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$1=""; print}'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$50=""; print}'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$50=""; print}' | head
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$50=""; print}' | head | cut -f 3-
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$50=""; print}' | head | cut -f 2-
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$50=""; print}' | head | cut -f 2-12
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$50=""; print}' | head | cut -f 2-11
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$50=""; print}' | head | cut -f 2-12
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$50=""; print}' | head | cut -f 2-12 | pbcopy 
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$50=""; print}' | head | cut -f 2-9,11-12 | pbcopy 
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77 | sed 's/[0-9]+\(x\)[0-9]+\1/ x /g'
+history | grep sed
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77 | sed 's/[0-9]+\(x\)[0-9]+/ x /g'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77 | sed 's/[0-9]+\(x\)[0-9]+/P/g'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77 | sed -E 's/[0-9]+\(x\)[0-9]+/P/g'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77 | sed -E 's/[0-9]+\([x]\)[0-9]+/P/g'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77 | sed -E 's/[0-9]+\([x]\)[0-9]+/\2/g'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77 | sed -E 's/[0-9]+\([x]\)[0-9]+/\1/g'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77 | sed -E 's/[0-9]+\(x\)[0-9]+/\1/g'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77 | sed -E 's/[0-9]+\(x\)[0-9]+/\1/g'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77 | sed -r 's/[0-9]+\(x\)[0-9]+/\1/g'
+man sed
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77 | sed -E 's/\([0-9]+x[0-9]+\)/\1/g'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77 | sed -E 's/([0-9]+x[0-9]+)/\1/g'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77 | sed -E 's/([0-9]+x[0-9]+)/\1X/g'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77 | sed -E 's/[0-9]+(x)[0-9]+/\1/g'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77 | sed -E 's/[0-9]+\(x\)[0-9]+/\1/g'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77 | sed -E 's/\([0-9]+\)x\([0-9]+\)/\1/g'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77 | sed -E 's/([0-9]+)x([0-9]+)/\1/g'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{print $0}' | head -n 77 | sed -E 's/([0-9]+)x([0-9]+)/\1 x \2/g'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$50=""; print}' | head | cut -f 2-9,11-12
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$50=""; print}' | sed -E 's/([0-9]+)x([0-9]+)/\1 x \2/g' | head | cut -f 2-9,11-12
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$50=""; print}' | sed -E 's/([0-9]+)x([0-9]+)/\1 x \2/g' | head | cut -f 2-9,11-12 | pbcopy 
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$50=""; print}' | sed -E 's/([0-9]+)x([0-9]+)/\1 x \2/g' | head | cut -f 2-9,11-12,10 | pbcopy 
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$50=""; print}' | sed -E 's/([0-9]+)x([0-9]+)/\1 x \2/g' | head | cut -f 2-9,11-12 | pbcopy 
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$50=""; print}' | sed -E 's/([0-9]+)x([0-9]+)/\1 x \2/g' | cut -f 2-9,11-12 | pbcopy 
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$50=""; print}' | sed -E 's/([0-9]+)[x]([0-9]+)/\1 x \2/g' | cut -f 2-9,11-12 | pbcopy
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$50=""; print}' | cut -f 2-9,11-12 | pbcopy
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[/,;:]' '{OFS="\t";$50=""; print}'
+find . -type f -exec file -- {} +
+find . -type f -exec file -- {} + | tr ',' '\n'
+find . -type f -exec file -- {} + | LC_CTYPE=C tr ',' '\n'
+find . -type f -exec file -- {} + | LC_CTYPE=C tr ',' '\n' | grep "comment"
+find . -type f -exec file -- {} + | grep "comment
+find . -type f -exec file -- {} + | grep "comment"
+history
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[,;]' '{for (i=1; i<=NF; i++) printf $i"\t"; if (i = NF) print "Cols:"NF;}'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[,;]' '{for (i=1; i<=NF; i++) printf $i"\t"; if (NF = 9) print $0;}'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[,;]' '{if (NF = 9) print $0;}'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[,;]' '{if (NF == 9) print $0;}'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[,;]' '{if (NF != 9) print $0;}'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[,;]' '{if (NF != 9) print $0;}' | wc -l
+history | grep xattr
+history | grep history
+cat ~/history-snap/history* | grep awk | grep xattr
+ll
+cd ..
+cd image
+ll
+cd image
+cd images/
+ll
+history | grep xattr
+ll
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[,;]' '{if (NF != 9) print $0;}' | wc -l
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[,;]' '{if (NF != 9) print $1;}' | wc -l
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[,;]' '{if (NF != 9) print $1;}'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[,;:]' '{if (NF != 9) print $1;}'
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[,;:]' '{if (NF != 10) print $1;}'
+find . -type f -exec file -- {} + | grep .jpg | a
+cd panda/
+ll
+exiftool -h
+exiftool --help
+exiftool 
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[,;:]' '{if (NF != 10) print $1;}'
+exiftool -s -ImageSize *.jpg
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[,;:]' '{if (NF != 10) print $1;}'
+exiftool -all= --jfif:all 
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[,;:]' '{if (NF != 10) print $1;}'
+find . -type f -exec file -- {} + | grep *_00490.jpg | awk -F'[,;:]' '{if (NF != 10) print $1;}'
+find . -type f -exec file -- {} + | grep *_00490.jpg
+find . -type f -exec file -- {} + | grep .jpg | awk -F'[,;:]' '{if (NF != 10) print $1;}' | xargs -IX exiftool -all= --jfif:all X
+ll
+mkdir exif_orig
+mv *_original exif_orig/
+ll
+ll | wc -l
+ll -a
+history
+ll
+ll -rt
+history
+exiftool panda_00490.jpg 
+exiftool -sep="," panda_00490.jpg 
+exiftool -sep "," panda_00490.jpg 
+exiftool -t panda_00490.jpg 
+exiftool -T panda_00490.jpg 
+exiftool -T *.jpg
+exiftool -T *.jpg | pbcopy 
+exiftool -T panda_00490.jpg 
+exiftool -T panda_00490.jpg | cut -f 2-4,11
+exiftool -t panda_00490.jpg 
+exiftool panda_00490.jpg 
+exiftool -s panda_00490.jpg 
+exiftool panda_00490.jpg 
+exiftool -t panda_00490.jpg 
+exiftool -st panda_00490.jpg 
+exiftool -s- t panda_00490.jpg 
+exiftool -s -t panda_00490.jpg 
+exiftool -T -  panda_00490.jpg 
+exiftool -s1 panda_00490.jpg 
+exiftool -s2 panda_00490.jpg 
+exiftool -s3 panda_00490.jpg 
+exiftool -s2 panda_00490.jpg 
+exiftool -s1 panda_00490.jpg 
+exiftool -T -FileName -Directory -FileSize -MIMEType -ResolutionUnit -XResolution -YResolution -ImageWidth -ImageHeight -BitsPerSample -ColorComponents -YCbCrSubSampling -ImageSize -Megapixels panda_00490.jpg 
+find . -type f -exec exiftool -T -FileName -Directory -FileSize -MIMEType -ResolutionUnit -XResolution -YResolution -ImageWidth -ImageHeight -BitsPerSample -ColorComponents -YCbCrSubSampling -ImageSize -Megapixels -- {} +
+exiftool -T -FileName -Directory -FileSize -MIMEType -ResolutionUnit -XResolution -YResolution -ImageWidth -ImageHeight -BitsPerSample -ColorComponents -YCbCrSubSampling -ImageSize -Megapixels *.jpg
+exiftool -T -FileName -Directory -FileSize -MIMEType -ResolutionUnit -XResolution -YResolution -ImageWidth -ImageHeight -BitsPerSample -ColorComponents -YCbCrSubSampling -ImageSize -Megapixels *.jpg
+cd exif_orig/
+ll panda_00923.jpg
+ll
+cd ..
+ll
+exiftool -T -FileName -Directory -FileSize -MIMEType -ResolutionUnit -XResolution -YResolution -ImageWidth -ImageHeight -BitsPerSample -ColorComponents -YCbCrSubSampling -ImageSize -Megapixels *.jpg
+ll
+cd exif_orig/
+ll
+exiftool -T -FileName -Directory -FileSize -MIMEType -ResolutionUnit -XResolution -YResolution -ImageWidth -ImageHeight -BitsPerSample -ColorComponents -YCbCrSubSampling -ImageSize -Megapixels *.jpg
+exiftool -T -FileName -Directory -FileSize -MIMEType -ResolutionUnit -XResolution -YResolution -ImageWidth -ImageHeight -BitsPerSample -ColorComponents -YCbCrSubSampling -ImageSize -Megapixels *
+ll
+cd ..
+ll
+rm -rf exif_orig/
+ll
+cd ..
+ll
+exiftool -r -T -FileName -Directory -FileSize -MIMEType -ResolutionUnit -XResolution -YResolution -ImageWidth -ImageHeight -BitsPerSample -ColorComponents -YCbCrSubSampling -ImageSize -Megapixels *.jpg
+exiftool -T -r -FileName -Directory -FileSize -MIMEType -ResolutionUnit -XResolution -YResolution -ImageWidth -ImageHeight -BitsPerSample -ColorComponents -YCbCrSubSampling -ImageSize -Megapixels *.jpg
+exiftool -T -r -FileName -Directory -FileSize -MIMEType -ResolutionUnit -XResolution -YResolution -ImageWidth -ImageHeight -BitsPerSample -ColorComponents -YCbCrSubSampling -ImageSize -Megapixels
+exiftool -T -r -FileName -Directory -FileSize -MIMEType -ResolutionUnit -XResolution -YResolution -ImageWidth -ImageHeight -BitsPerSample -ColorComponents -YCbCrSubSampling -ImageSize -Megapixels *
+exiftool -T -r -FileName -Directory -FileSize -MIMEType -ResolutionUnit -XResolution -YResolution -ImageWidth -ImageHeight -BitsPerSample -ColorComponents -YCbCrSubSampling -ImageSize -Megapixels *.jpg
+exiftool -T -r -FileName -Directory -FileSize -MIMEType -ResolutionUnit -XResolution -YResolution -ImageWidth -ImageHeight -BitsPerSample -ColorComponents -YCbCrSubSampling -ImageSize -Megapixels
+exiftool -T -r -FileName -Directory -FileSize -MIMEType -ResolutionUnit -XResolution -YResolution -ImageWidth -ImageHeight -BitsPerSample -ColorComponents -YCbCrSubSampling -ImageSize -Megapixels *
+exiftool -T -r -FileName -Directory -FileSize -MIMEType -ResolutionUnit -XResolution -YResolution -ImageWidth -ImageHeight -BitsPerSample -ColorComponents -YCbCrSubSampling -ImageSize -Megapixels * | pbcopy 
+exiftool -s  panda/panda_00490.jpg 
+pbpaste 
+| tr ' -' ','
+pbpaste | tr ' -' ','
+pbpaste | tr '-' ','
+pbpaste | tr '-' ',' | sed 's/ //g'
+pbpaste | sed 's/ -/,/g'
+pbpaste | sed 's/ -/,/g; s/-//g'
+pbpaste | sed 's/ -/,/g; s/-//g' | pbcopy 
+pbpaste | sed 's/ -/,/g; s/-//g' | pbcopy ll
+ll
+clear
+say hello Dear
+say HI Jia Wen
+pip install bs4
+pip install lxml
+pwd
+ll
+cd ..
+ll
+pwd
+pbpaste 
+pbpaste | grep -A 40 "Launch Jupyter Notebook"
+pbpaste | grep -A 40 "Launch Jupyter Notebook"
+pbpaste | grep -A 14 "Launch Jupyter Notebook"
+clear
+ll
+cd ..
+ll
+cd ..
+ll
+pwd
+git clone https://github.com/caggursoy/phdSideQuests.git
+ll
+cd phdSideQuests/
+ll
+cd statistics/
+ll
+cd ..
+ll
+cd animalNet/
+ll
+cd model
+ll
+cd ..
+ll
+ll
+cd ..
+cd ..
+ll
+cd homework/
+ll
+cd -
+cd phdSideQuests/
+ll
+cd animalNet/
+pwd
+ll
+ll
+cd ..
+ll
+du -S
+du -s
+du -sh
+du -sh *
+du -sh *.*
+du -sh .*
+cd .git
+ll
+du -sh *
+cd objects/
+ll
+du -sh *
+cd pack/
+ll
+cd ..
+ll
+cd ..
+ll
+cd ..
+ll
+ll -a
+rm -rf .git*
+ll
+cd animalNet/
+ll
+cd ..
+ll
+cp -R animalNet/ ~/Downloads/DAAN-570-302-scratch/
+cp -R animalNet ~/Downloads/DAAN-570-302-scratch/
+ll
+cd ..
+ll
+pwd
+cd homework/
+ll
+cd assignment_03/
+ll
+history
+pwd
+pwd
+ll
+ll -a
+rm -rf .i*
+ll
+ll -a
+pwd
+cd .
+ll
+cd ..
+cd ..
+ll
+cd ..
+ll
+find . | grep git
+find . | grep init
+cd git.repo/
+cd phdSideQuests/
+ll
+ll -a
+ll
+pbpaste 
+pbpaste | cut -f 3
+pbpaste | cut -d' ' -f 3
+pbpaste | cut -d' ' -f 2
+pbpaste | cut -d' ' -f 4-
+pbpaste | cut -d' ' -f 5-
+pbpaste | cut -d' ' -f 5- | pbcopy 
+history | grep cut
+pbpaste | cut -d' ' -f 4,6- | pbcopy 
+pbpaste | cut -d' ' -f 5- | pbcopy 
+pbpaste | cut -d' ' -f 4,6- | pbcopy 
+pbpaste | cut -d' ' -f 4,6- | pbcopy 
+pbpaste | cut -d' ' -f 4,6- | pbcopy 
+for i in {1..100}; do echo "Never Forget the White Cursor Box"; done
+for i in {1..100}; do echo 'Never Forget the White Cursor Box'; done
+for i in {1..100}; do echo 'Never Forget the White Cursor Box!'; done
+for i in {1..100}; do echo 'Never Forget the White Cursor Box!!!!'; done
+for i in {1..100}; do echo '$i - Never Forget the White Cursor Box!!!!'; done
+for i in {1..100}; do echo $i 'Never Forget the White Cursor Box!!!!'; done
+for i in {1..100}; do echo $i ' - Never Forget the White Cursor Box!!!!'; done
+for i in {1..100}; do echo $i '- Never Forget the White Cursor Box!!!!'; done
+for i in {1..100}; do echo $i '- Never Forget the White Cursor Box!!!!'; done
+for i in {1..100}; do echo $i '- Never Forget the White Cursor Box!!!!'; done 
+ll
+history
+pip show unrar
+cd Downloads/
+patool extract Yoga-82.rar 
+man patool
+ll
+history
+cd /Library/Frameworks/Python.framework/Versions/3.8/bin
+ll
+pip install rarfile
+patool extract Yoga-82.rar 
+cd ~/Downloads/
+patool extract Yoga-82.rar 
+ll
+cd -
+ll
+cd patool 
+vi patool 
+pip 
+pip uninstall unrar
+pip install unrar
+cd
+cd Downloads/
+patool extract Yoga-82.rar 
+ cd /Library/Frameworks/Python.framework/Versions/3.8/bin
+ll
+cd patool 
+vi patool 
+cd -
+patool extract Yoga-82.rar 
+pip install 7z
+pip install rar
+cd -
+vi patool 
+cd -
+patool extract Yoga-82.rar 
+cd -
+vi patool 
+ll
+vi patool 
+vi patool 
+man patool
+patool formats
+vi patool 
+patool formats
+pip install rar
+pip install 7za
+pip install 7zr
+pip uninstall pyunpack
+pip install pyunpack
+patool formats
+patool formats | grep rar
+pip install rarfile
+pip unistall rarfile
+pip uninstall rarfile
+pip uninstall unrar
+pip install unrar
+ll
+mv ~/Downloads/unrar_MacOSX_10.13.2_64bit unrar
+ll
+chmod 775 unrar 
+ll
+cp unrar luke
+ll
+chmod -@ luke 
+xattr -c unrar 
+ll
+rm -f luke 
+pwd
+history | grep tar
+ll
+mv unrar luke
+ll
+cp ~/Downloads/unrar_MacOSX_10.13.2_64bit unrar
+ll
+chmod 755 unrar 
+ll
+rm -f unrar 
+cp ~/Downloads/"unrar_MacOSX_10.13.2_64bit (1)" unrar
+ll
+chmod 755 unrar 
+ll
+luke -h
+.luke --help
+.luke
+luke
+history | grep cut
+pbpaste | cut -d'>' -f 3-
+pbpaste | cut -d'>' -f 1-
+pbpaste | cut -d'>' -f 2-
+pbpaste | cut -d' ' -f 2-
+pbpaste | cut -d'>' -f 2-
+pbpaste | cut -d'>' -f 2- | pbcopy 
+pbpaste 
+pbpaste | tr '\n' ', '
+pbpaste | tr '\n' ', ' | pbcopy 
+killall finder
+killall Finder
+history
+clear
+history
+history
+ll
+cd Downloads/
+cd DAAN-570-302-scratch/
+ll
+cd psu-daan-570-group-1/
+ll
+ll
+git add -A
+git status
+git commit -a -m 'integrated example codes into single file; included refs to both datasets'
+git push
+git mv models.beta/xception_weights_tf_dim_ordering_tf_kernels_notop.h5 models.tmp/
+ll
+git status
+git commit -a -m 'integrated example codes into single file; included refs to both datasets'
+git push
+git pull
+cd ..
+ll
+cd psu-daan-570-group-1/
+ll
+ll -a
+vi .gitignore 
+git pull
+ll
+git status
+ll
+cd models.
+cd models.tmp/
+ll
+touch test.h5
+git add -A
+git status
+cd ..
+ll
+cd models.tmp/
+rm -f *
+ll
+cd ..
+vi .gitignore 
+cd models.tmp/
+ll
+ll
+vi README.md
+git add -A
+git commit -a -m 'add tmp dir for models'
+git push
+git pull
+ll
+cd ..
+ll
+cd images/
+ll
+cd Project/
+l
+ll
+cd DATASET/
+ll
+l
+history | grep exif
+history | grep find
+ll
+find . -type f -exec exiftool -- {} +
+ll
+history | grep exif
+find . -type f -exec exiftool -all= --jfif:all -- {} +
+find . -type f -exec exiftool -all= --jfif:all -- {} +
+ll
+cd TEST
+ll
+cd downdog/
+ll
+find . -type f -name '*_original' -- {} +
+find . -type f -name '*_original'
+find . -type f -name '*_original' -exec rm -f -- {} +
+ll
+cd ..
+ll
+history
+find . -type f -name '*_original' -exec rm -f -- {} +
+find . -type f -name '*_original'
+find . -type f -name '*_original'
+ll
+find . -type f -exec exiftool -validate -- {} +
+ll
+history
+cd ..
+ll
+cd ..
+cd ..
+cd ..
+cd ..
+git clone https://github.com/m31uk3/psu-ie-575-team-4.git
+ll
+cp psu-daan-570-group-1/.gitignore psu-ie-575-team-4/
+cd psu-ie-575-team-4/
+cp ~/Downloads/spotify-song-prediction-and-recommendation-system.ipynb 
+cp ~/Downloads/spotify-song-prediction-and-recommendation-system.ipynb .
+ll
+ll ../psu-daan-570-group-1/
+ls -1 ../psu-daan-570-group-1/ 
+mkdir models.beta
+models.stable
+models.tmp
+mkdir models.stable
+mkdir models.tmp
+ll
+mkdir plots
+ll
+mkdir data
+ll
+ll
+vi .gitignore 
+ll
+git add -A
+git status
+for i in (ls *mod*); echo i;
+history | grep for
+for i in {ls *mod*}; do echo i; done
+for i in {ls *mod*}; do echo $i; done
+for i in ls *mod*; do echo $i; done
+for i in (*mod*); do echo $i; done
+for i in {*mod*}; do echo $i; done
+for i in ls *mod*; do echo $i; done
+for i in *mod*; do echo $i; done
+for i in *mod*; do echo $i; done
+history
+find . -type f -name *model*
+find . -name *model* -type f *model*
+find . -name model* -type f *model*
+find . -name "*model*" -type f *model*
+find . -name "*model*" -type f
+find . -name "model*" -type f
+ll
+find . -name "models*" -type f
+find . -name "models*" -type d
+find . -name "models*" -type d -exec touch README.md -- {} +
+ll
+find .
+ll -r
+ll -R
+ll
+rm -f --
+ll
+rm -f "--"
+ll
+ll
+ll
+history | grep exec
+find . -name "models*" -type d -exec touch README.md {} +
+ll
+cd models.tmp/
+ll
+cd ..
+ll
+vi README.md 
+for i in ls *mod*; do echo $i; done
+for i in *mod*; do echo $i; done
+for i in *mod*; do touch $i/README.md; done
+ll -R
+ll
+cd models.tmp/
+ll
+cat *
+cp ../../psu-daan-570-group-1/models.tmp/README.md .
+ll
+cat README.md 
+:q
+ll
+cd ..
+ll
+git add -A
+git status
+git commit -a -m 'first commit! :)'
+git push
+ll
+vi README.md 
+git add -A
+git commit -a -m 'first commit! :)'
+git push
+git pull
+git log
+ll
+cp ~/Downloads/hurricane-strength-3-ensemble-methods.Rmd .
+ll
+git add -A
+git commit -a -m 'find more R code examples to learn from'
+git push
+cp ~/Downloads/music-recommendation-system-using-spotify-dataset.ipynb .
+ll
+git add -A
+git commit -a -m 'find more R code examples to learn from'
+git push
+ll
+cd data/
+cp ../../psu-daan-570-group-1/models.tmp/.gitignore .
+vi .gitignore 
+cp .gitignore ../models.tmp/
+git add -A
+git commit -a -m 'add in .gitignores to support clean structure'
+git push
+cd data
+touch README.md
+cp ../models.tmp/README.md .
+vi README.md 
+git add -A
+git commit -a -m 'add in .gitignores to support clean structure'
+git push
+git pul
+git pull
+cd..
+cd ..
+ll
+cd ..
+ll
+cd psu-daan-570-group-1/
+vi .gitignore 
+cd ..
+cd psu-ie-575-team-4/
+ll
+vi .gitignore 
+git add -A
+git status
+cd data/
+ll
+vi .gitignore 
+vi .gitignore 
+git add -A
+git status
+git commit -a -m 'add in .gitignores to support clean structure'
+git push
+git pull
+ll
+cd ..
+ll
+mkdir ll
+ll
+mv ll tab-stash
+ll
+history | grep snap
+vi ~/.bash_profile 
+vi ~/.bash_profile 
+. ~/.bash_profile 
+ll
+cd tab-stash/
+ll
+tab-stash 
+vi ~/.bash_profile 
+. ~/.bash_profile 
+tab-stash 
+ll
+rm -f tab-stash.Sat_Apr_24_2021-04-24_04_24_10.txt 
+ll
+cat tab-stash.Sat_Apr_24_2021-04-24_04_24_35.txt 
+ll
+ll
+pwd
+git add -A
+git status
+git commit -a -m 'add tab-stash'
+git push
+git pull
+git push
+ll
+cd ..
+ll
+mkdir history-snap
+cd history-snap/
+history-snap 
