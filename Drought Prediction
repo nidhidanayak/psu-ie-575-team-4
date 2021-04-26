@@ -1,0 +1,54 @@
+library(dplyr)
+library(caret)
+library(lme4)
+library(rpart)
+soil_train <- read.csv('C:/Users/Nidhi/OneDrive/Desktop/train_timeseries/train_timeseries.csv')
+
+soil_test <- read.csv('C:/Users/Nidhi/OneDrive/Desktop/test_timeseries/test_timeseries.csv')
+
+soil_validation <- read.csv('C:/Users/Nidhi/OneDrive/Desktop/test_timeseries/test_timeseries.csv')
+
+head(soil_train)
+
+head(soil_test)
+
+soil_train[,'score'] <- round(soil_train$score)
+unique(soil_train$score)
+
+soil_test$score <- round(soil_test$score)
+unique(soil_test$score)
+
+soil_validation$score <- round(soil_validation$score)
+unique(soil_validation$score)
+
+data.frame(names(soil_train))
+
+soil_original <- soil_train
+
+soil_train<- na.omit(soil_train)
+
+soil_test <- na.omit(soil_test)
+
+soil_validation <- na.omit(soil_validation)
+
+soil_train <- soil_train[, -c(1,2)]
+names(soil_train)
+corr <- cor(soil_train)
+corr
+
+findCorrelation(corr, cutoff = 0.95, names=T)
+
+findLinearCombos(soil_train)
+
+corrplot::corrplot(corr, method = "square")
+
+
+model1 <- rpart(score~., soil_train, method = "class")
+
+summary(model1)
+plot(model1)
+
+y_act <- soil_train$score
+predict <- predict(model1, soil_train, "class")
+
+mean(predict == y_act)
